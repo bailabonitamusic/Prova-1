@@ -4,39 +4,43 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Baila Bonita</title>
+  <link rel="icon" href="logo.png">
   <meta name="description" content="Baila Bonita — musica per ballare. Nuove uscite, date live e contatti.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #fff7f0;
+      --bg: #fff6f7;
       --surface: #ffffff;
-      --ink: #1d1020;
-      --muted: #6b5a6e;
-      --accent: #e8336d;
-      --accent-2: #ff9f1c;
-      --line: #f0dfe4;
+      --ink: #2a1418;
+      --muted: #7a5a60;
+      --accent: #ff5757;
+      --accent-2: #ff8fa3;
+      --blush: #ffe3e7;
+      --line: #fbdde2;
     }
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme="light"]) {
-        --bg: #140a16;
-        --surface: #1f1222;
-        --ink: #fbeff4;
-        --muted: #b9a3bd;
-        --accent: #ff4f87;
-        --accent-2: #ffb347;
-        --line: #33213a;
+        --bg: #1a0d10;
+        --surface: #26141a;
+        --ink: #fff0f2;
+        --muted: #c9a7ae;
+        --accent: #ff6b6b;
+        --accent-2: #ff8fa3;
+        --blush: #3a1d24;
+        --line: #3a2229;
       }
     }
     :root[data-theme="dark"] {
-      --bg: #140a16;
-      --surface: #1f1222;
-      --ink: #fbeff4;
-      --muted: #b9a3bd;
-      --accent: #ff4f87;
-      --accent-2: #ffb347;
-      --line: #33213a;
+      --bg: #1a0d10;
+      --surface: #26141a;
+      --ink: #fff0f2;
+      --muted: #c9a7ae;
+      --accent: #ff6b6b;
+      --accent-2: #ff8fa3;
+      --blush: #3a1d24;
+      --line: #3a2229;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -59,8 +63,8 @@
       border-bottom: 1px solid var(--line);
     }
     nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-    .logo { font-family: "Bebas Neue", sans-serif; font-size: 28px; letter-spacing: 1px; text-decoration: none; }
-    .logo span { color: var(--accent); }
+    .logo { display: flex; align-items: center; }
+    .logo img { height: 52px; width: auto; display: block; }
     nav ul { display: flex; gap: 24px; list-style: none; }
     nav ul a { text-decoration: none; font-weight: 500; font-size: 15px; color: var(--muted); }
     nav ul a:hover { color: var(--accent); }
@@ -78,14 +82,8 @@
     .hero::before { width: 420px; height: 420px; background: var(--accent); top: -80px; left: -100px; }
     .hero::after  { width: 380px; height: 380px; background: var(--accent-2); bottom: 80px; right: -120px; }
     .eyebrow { text-transform: uppercase; letter-spacing: 4px; font-size: 13px; font-weight: 700; color: var(--accent); }
-    .hero h1 {
-      font-family: "Bebas Neue", sans-serif;
-      font-size: clamp(72px, 16vw, 180px);
-      line-height: .9;
-      margin: 16px 0 24px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-    }
+    .hero h1 { margin: 12px 0 20px; }
+    .hero h1 img { width: min(560px, 92%); height: auto; display: block; margin: 0 auto; filter: drop-shadow(0 18px 30px rgba(255, 87, 87, .25)); }
     .hero p { font-size: clamp(17px, 2.5vw, 21px); color: var(--muted); max-width: 560px; margin: 0 auto 36px; }
     .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
     .btn {
@@ -98,7 +96,7 @@
 
     /* Sections */
     section { padding: 90px 0; }
-    h2 { font-family: "Bebas Neue", sans-serif; font-size: clamp(44px, 7vw, 64px); letter-spacing: 1px; line-height: 1; margin-bottom: 12px; }
+    h2 { font-family: "Shrikhand", cursive; font-size: clamp(38px, 6vw, 54px); line-height: 1.1; margin-bottom: 16px; color: var(--accent); text-shadow: 3px 3px 0 var(--blush); }
     .lead { color: var(--muted); max-width: 620px; margin-bottom: 40px; }
 
     .about { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
@@ -124,11 +122,11 @@
     .cover {
       aspect-ratio: 1; border-radius: 14px; margin-bottom: 16px;
       display: grid; place-items: center;
-      font-family: "Bebas Neue", sans-serif; font-size: 40px; color: #fff;
+      font-family: "Shrikhand", cursive; font-size: 30px; color: #fff;
     }
-    .c1 { background: linear-gradient(135deg, #e8336d, #7b2ff7); }
-    .c2 { background: linear-gradient(135deg, #ff9f1c, #e8336d); }
-    .c3 { background: linear-gradient(135deg, #00b4d8, #7b2ff7); }
+    .c1 { background: linear-gradient(135deg, #ff5757, #ff8fa3); }
+    .c2 { background: linear-gradient(135deg, #ff8fa3, #ffc2cc); }
+    .c3 { background: linear-gradient(135deg, #e63e5c, #ff5757); }
     .card h3 { font-size: 18px; }
     .card small { color: var(--muted); }
 
@@ -137,7 +135,7 @@
       display: grid; grid-template-columns: 110px 1fr auto; gap: 16px; align-items: center;
       padding: 22px 0; border-bottom: 1px solid var(--line);
     }
-    .date { font-family: "Bebas Neue", sans-serif; font-size: 30px; color: var(--accent); line-height: 1; }
+    .date { white-space: nowrap; font-family: "Shrikhand", cursive; font-size: 24px; color: var(--accent); line-height: 1; }
     .events .where { color: var(--muted); font-size: 15px; }
     .tag { font-size: 13px; font-weight: 700; padding: 6px 14px; border-radius: 999px; border: 1.5px solid var(--ink); text-decoration: none; }
 
@@ -145,6 +143,7 @@
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
       color: #fff; border-radius: 28px; padding: 60px 32px; text-align: center;
     }
+    .contact h2 { color: #fff; text-shadow: 3px 3px 0 rgba(0,0,0,.12); }
     .contact .lead { color: rgba(255,255,255,.9); margin: 0 auto 32px; }
     .contact .btn { background: #fff; color: var(--accent); }
     .socials { display: flex; gap: 12px; justify-content: center; margin-top: 28px; flex-wrap: wrap; }
@@ -165,7 +164,7 @@
 
   <nav>
     <div class="wrap">
-      <a href="#" class="logo">Baila <span>Bonita</span></a>
+      <a href="#" class="logo"><img src="logo.png" alt="Baila Bonita"></a>
       <ul>
         <li><a href="#chi-siamo">Chi siamo</a></li>
         <li><a href="#musica">Musica</a></li>
@@ -178,7 +177,7 @@
   <header class="hero">
     <div class="wrap">
       <div class="eyebrow">Music · Dance · Vibes</div>
-      <h1>Baila<br>Bonita</h1>
+      <h1><img src="logo.png" alt="Baila Bonita"></h1>
       <p>Ritmi caldi, bassi che spingono e melodie da cantare a squarciagola. Musica fatta per ballare.</p>
       <div class="btns">
         <a href="#musica" class="btn btn-primary">▶ Ascolta ora</a>
