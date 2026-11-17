@@ -158,6 +158,14 @@
     .event:only-child .event-body { padding: 28px; gap: 12px; }
     .event:only-child .club-logo img { height: 84px; }
 
+    .ig-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-start; }
+    .ig-grid .instagram-media {
+      background: var(--surface) !important; border: 1px solid var(--line) !important; border-radius: 20px !important;
+      margin: 0 !important; min-width: 280px !important; width: 100%; max-width: 420px !important; padding: 24px; text-align: center;
+    }
+    .ig-grid .instagram-media a { font-weight: 700; color: var(--accent); }
+    .ig-grid .instagram-media-rendered { padding: 0; }
+
     /* Features */
     .features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .feature { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 22px; }
@@ -274,6 +282,18 @@
     </div>
   </section>
 
+  <section id="instagram">
+    <div class="wrap">
+      <h2>Dal nostro Instagram</h2>
+      <p class="lead">Seguici su <a href="https://www.instagram.com/bailabonitaa/" target="_blank" rel="noopener">@bailabonitaa</a> per foto, video e annunci delle prossime serate.</p>
+      <div class="ig-grid">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Dfm6jMNgItL/?utm_source=ig_embed" data-instgrm-version="14">
+          <a href="https://www.instagram.com/p/Dfm6jMNgItL/" target="_blank" rel="noopener">Guarda questo post su Instagram</a>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
   <section id="prenota">
     <div class="wrap">
       <div class="contact">
@@ -289,6 +309,8 @@
       </div>
     </div>
   </section>
+
+  <script async src="https://www.instagram.com/embed.js"></script>
 
   <footer>
     <div class="wrap">© 2026 Baila Bonita · Serate latine nei locali della zona</div>
