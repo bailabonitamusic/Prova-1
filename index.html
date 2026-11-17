@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Baila Bonita</title>
   <link rel="icon" href="logo.png">
-  <meta name="description" content="Baila Bonita — musica per ballare. Nuove uscite, date live e contatti.">
+  <meta name="description" content="Baila Bonita: serate di musica latina nei locali della zona, con il format allestito da noi. Calendario, locali e prenotazioni.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
@@ -115,37 +115,54 @@
     @keyframes spin { to { transform: rotate(360deg); } }
     @media (prefers-reduced-motion: reduce) { .vinyl { animation: none; } }
 
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-    .card {
-      background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 20px;
+    /* Events */
+    .events { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .event {
+      background: var(--surface); border: 1px solid var(--line); border-radius: 22px; overflow: hidden;
+      display: flex; flex-direction: column;
     }
-    .cover {
-      aspect-ratio: 1; border-radius: 14px; margin-bottom: 16px;
-      display: grid; place-items: center;
-      font-family: "Shrikhand", cursive; font-size: 30px; color: #fff;
+    .event-top {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff; padding: 22px; display: flex; gap: 18px; align-items: center;
     }
-    .c1 { background: linear-gradient(135deg, #ff5757, #ff8fa3); }
-    .c2 { background: linear-gradient(135deg, #ff8fa3, #ffc2cc); }
-    .c3 { background: linear-gradient(135deg, #e63e5c, #ff5757); }
-    .card h3 { font-size: 18px; }
-    .card small { color: var(--muted); }
+    .event:nth-child(3n+2) .event-top { background: linear-gradient(135deg, #ff8fa3, #ff5757); }
+    .event:nth-child(3n+3) .event-top { background: linear-gradient(135deg, #e63e5c, #ff8fa3); }
+    .badge {
+      background: rgba(255,255,255,.95); color: var(--accent); border-radius: 14px;
+      width: 68px; flex: none; text-align: center; padding: 8px 0; line-height: 1.1;
+    }
+    .badge b { display: block; font-family: "Shrikhand", cursive; font-size: 28px; font-weight: 400; }
+    .badge span { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+    .event-top h3 { font-family: "Shrikhand", cursive; font-weight: 400; font-size: 24px; line-height: 1.15; }
+    .event-top small { opacity: .9; font-weight: 500; }
+    .event-body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .row { display: flex; gap: 10px; color: var(--muted); font-size: 15px; }
+    .row i { font-style: normal; width: 20px; text-align: center; }
+    .event-body .btn { margin-top: auto; text-align: center; padding: 12px 20px; }
 
-    .events { list-style: none; border-top: 1px solid var(--line); }
-    .events li {
-      display: grid; grid-template-columns: 110px 1fr auto; gap: 16px; align-items: center;
-      padding: 22px 0; border-bottom: 1px solid var(--line);
+    /* Features */
+    .features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .feature { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 22px; }
+    .feature .ico { font-size: 30px; }
+    .feature h3 { font-size: 17px; margin: 8px 0 4px; }
+    .feature p { color: var(--muted); font-size: 14.5px; }
+
+    /* Venues */
+    .venues { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .venue {
+      border-radius: 20px; padding: 26px 22px; background: var(--blush); border: 1px solid var(--line);
     }
-    .date { white-space: nowrap; font-family: "Shrikhand", cursive; font-size: 24px; color: var(--accent); line-height: 1; }
-    .events .where { color: var(--muted); font-size: 15px; }
-    .tag { font-size: 13px; font-weight: 700; padding: 6px 14px; border-radius: 999px; border: 1.5px solid var(--ink); text-decoration: none; }
+    .venue h3 { font-family: "Shrikhand", cursive; font-weight: 400; font-size: 22px; color: var(--accent); }
+    .venue p { color: var(--muted); font-size: 15px; }
 
     .contact {
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #fff; border-radius: 28px; padding: 60px 32px; text-align: center;
+      color: #fff; border-radius: 28px; padding: 60px 24px; text-align: center;
     }
     .contact h2 { color: #fff; text-shadow: 3px 3px 0 rgba(0,0,0,.12); }
-    .contact .lead { color: rgba(255,255,255,.9); margin: 0 auto 32px; }
-    .contact .btn { background: #fff; color: var(--accent); }
+    .contact .lead { color: rgba(255,255,255,.92); margin: 0 auto 32px; }
+    .contact .btns .btn { background: #fff; color: var(--accent); }
+    .contact .btns .btn-ghost { background: transparent; color: #fff; border-color: #fff; }
     .socials { display: flex; gap: 12px; justify-content: center; margin-top: 28px; flex-wrap: wrap; }
     .socials a { text-decoration: none; font-weight: 700; padding: 10px 18px; border-radius: 999px; background: rgba(255,255,255,.18); }
 
@@ -154,7 +171,8 @@
     @media (max-width: 720px) {
       nav ul { display: none; }
       .about { grid-template-columns: 1fr; }
-      .events li { grid-template-columns: 1fr; gap: 6px; }
+      .features { grid-template-columns: 1fr; }
+      .events { grid-template-columns: 1fr; }
       .hero { padding: 80px 0 70px; }
       section { padding: 64px 0; }
     }
@@ -166,103 +184,119 @@
     <div class="wrap">
       <a href="#" class="logo"><img src="logo.png" alt="Baila Bonita"></a>
       <ul>
+        <li><a href="#serate">Prossime serate</a></li>
         <li><a href="#chi-siamo">Chi siamo</a></li>
-        <li><a href="#musica">Musica</a></li>
-        <li><a href="#live">Live</a></li>
-        <li><a href="#contatti">Contatti</a></li>
+        <li><a href="#locali">Locali</a></li>
+        <li><a href="#prenota">Prenota</a></li>
       </ul>
     </div>
   </nav>
 
   <header class="hero">
     <div class="wrap">
-      <div class="eyebrow">Music · Dance · Vibes</div>
+      <div class="eyebrow">Musica latina · Serate · Format</div>
       <h1><img src="logo.png" alt="Baila Bonita"></h1>
-      <p>Ritmi caldi, bassi che spingono e melodie da cantare a squarciagola. Musica fatta per ballare.</p>
+      <p>Le serate latine più calde della zona. Portiamo musica e allestimento nei migliori locali e li trasformiamo in una festa.</p>
       <div class="btns">
-        <a href="#musica" class="btn btn-primary">▶ Ascolta ora</a>
-        <a href="#live" class="btn btn-ghost">Date live</a>
+        <a href="#serate" class="btn btn-primary">Prossime serate</a>
+        <a href="#prenota" class="btn btn-ghost">Prenota un tavolo</a>
       </div>
     </div>
   </header>
+
+  <section id="serate">
+    <div class="wrap">
+      <h2>Prossime serate</h2>
+      <p class="lead">Segna la data, chiama gli amici e vieni a ballare con noi.</p>
+      <div class="events">
+        <article class="event">
+          <div class="event-top">
+            <div class="badge"><b>GG</b><span>MMM</span></div>
+            <div><h3>Nome serata</h3><small>Giorno della settimana</small></div>
+          </div>
+          <div class="event-body">
+            <div class="row"><i>📍</i>Nome locale · Città</div>
+            <div class="row"><i>🕙</i>Dalle 22:00</div>
+            <div class="row"><i>🎟️</i>Ingresso: da definire</div>
+            <a href="#prenota" class="btn btn-primary">Info e prenotazioni</a>
+          </div>
+        </article>
+        <article class="event">
+          <div class="event-top">
+            <div class="badge"><b>GG</b><span>MMM</span></div>
+            <div><h3>Nome serata</h3><small>Giorno della settimana</small></div>
+          </div>
+          <div class="event-body">
+            <div class="row"><i>📍</i>Nome locale · Città</div>
+            <div class="row"><i>🕙</i>Dalle 22:00</div>
+            <div class="row"><i>🎟️</i>Ingresso: da definire</div>
+            <a href="#prenota" class="btn btn-primary">Info e prenotazioni</a>
+          </div>
+        </article>
+        <article class="event">
+          <div class="event-top">
+            <div class="badge"><b>GG</b><span>MMM</span></div>
+            <div><h3>Nome serata</h3><small>Giorno della settimana</small></div>
+          </div>
+          <div class="event-body">
+            <div class="row"><i>📍</i>Nome locale · Città</div>
+            <div class="row"><i>🕙</i>Dalle 22:00</div>
+            <div class="row"><i>🎟️</i>Ingresso: da definire</div>
+            <a href="#prenota" class="btn btn-primary">Info e prenotazioni</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
   <section id="chi-siamo">
     <div class="wrap about">
       <div>
         <h2>Chi siamo</h2>
-        <p class="lead">Baila Bonita nasce dalla voglia di far muovere la gente. Un mix di sonorità latine, pop ed elettronica, pensato per la pista da ballo e per l'estate che non finisce mai.</p>
-        <p class="lead">Ogni traccia è un invito: lasciati andare, chiudi gli occhi e balla.</p>
+        <p class="lead">Baila Bonita è un format di serate a tema latino nei locali della zona. Non portiamo solo la musica: allestiamo il locale con il nostro stile, così ogni serata ha l'atmosfera Baila Bonita.</p>
+        <div class="features">
+          <div class="feature"><div class="ico">🎶</div><h3>Musica latina</h3><p>Reggaeton, bachata, salsa e le hit latine del momento.</p></div>
+          <div class="feature"><div class="ico">💋</div><h3>Allestimento</h3><p>Allestiamo il locale con il format Baila Bonita: atmosfera e colori riconoscibili.</p></div>
+          <div class="feature"><div class="ico">💃</div><h3>Pista</h3><p>Si balla dall'inizio alla fine, nessuno resta seduto.</p></div>
+          <div class="feature"><div class="ico">🥂</div><h3>Tavoli</h3><p>Festeggi un compleanno o vieni in gruppo? Prenota un tavolo.</p></div>
+        </div>
       </div>
       <div class="about-art" aria-hidden="true"><div class="vinyl"></div></div>
     </div>
   </section>
 
-  <section id="musica">
+  <section id="locali">
     <div class="wrap">
-      <h2>Musica</h2>
-      <p class="lead">Le ultime uscite. Disponibili su tutte le piattaforme di streaming.</p>
-      <div class="grid">
-        <div class="card">
-          <div class="cover c1">Singolo 1</div>
-          <h3>Titolo singolo</h3>
-          <small>Singolo · 2026</small>
-        </div>
-        <div class="card">
-          <div class="cover c2">Singolo 2</div>
-          <h3>Titolo singolo</h3>
-          <small>Singolo · 2026</small>
-        </div>
-        <div class="card">
-          <div class="cover c3">EP</div>
-          <h3>Titolo EP</h3>
-          <small>EP · 2025</small>
-        </div>
+      <h2>I nostri locali</h2>
+      <p class="lead">I locali della zona dove trovi le serate Baila Bonita. Hai un locale e vuoi il nostro format? <a href="#prenota">Contattaci</a>.</p>
+      <div class="venues">
+        <div class="venue"><h3>Nome locale</h3><p>Indirizzo · Città</p></div>
+        <div class="venue"><h3>Nome locale</h3><p>Indirizzo · Città</p></div>
+        <div class="venue"><h3>Nome locale</h3><p>Indirizzo · Città</p></div>
       </div>
     </div>
   </section>
 
-  <section id="live">
-    <div class="wrap">
-      <h2>Live</h2>
-      <p class="lead">Vieni a ballare con noi. Le prossime date:</p>
-      <ul class="events">
-        <li>
-          <div class="date">GG MMM</div>
-          <div><strong>Nome evento</strong><div class="where">Città · Locale</div></div>
-          <a href="#contatti" class="tag">Info</a>
-        </li>
-        <li>
-          <div class="date">GG MMM</div>
-          <div><strong>Nome evento</strong><div class="where">Città · Locale</div></div>
-          <a href="#contatti" class="tag">Info</a>
-        </li>
-        <li>
-          <div class="date">GG MMM</div>
-          <div><strong>Nome evento</strong><div class="where">Città · Locale</div></div>
-          <a href="#contatti" class="tag">Info</a>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="contatti">
+  <section id="prenota">
     <div class="wrap">
       <div class="contact">
-        <h2>Contatti</h2>
-        <p class="lead">Booking, collaborazioni o solo per salutarci: scrivici!</p>
-        <a href="mailto:info@example.com" class="btn">Scrivici una mail</a>
+        <h2>Prenota</h2>
+        <p class="lead">Tavoli, liste e informazioni sulle serate, oppure vuoi portare Baila Bonita nel tuo locale? Scrivici!</p>
+        <div class="btns">
+          <a href="#" class="btn">Scrivici su WhatsApp</a>
+          <a href="mailto:info@example.com" class="btn btn-ghost">Mandaci una mail</a>
+        </div>
         <div class="socials">
           <a href="#">Instagram</a>
-          <a href="#">Spotify</a>
-          <a href="#">YouTube</a>
           <a href="#">TikTok</a>
+          <a href="#">Facebook</a>
         </div>
       </div>
     </div>
   </section>
 
   <footer>
-    <div class="wrap">© 2026 Baila Bonita · Tutti i diritti riservati</div>
+    <div class="wrap">© 2026 Baila Bonita · Serate latine nei locali della zona</div>
   </footer>
 
 </body>
