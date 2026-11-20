@@ -443,7 +443,7 @@
           </li>
           <li>
             <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
-            <span class="todo">Email da inserire</span>
+            <a href="mailto:info@rossiedilizia.it">info@rossiedilizia.it</a>
           </li>
           <li>
             <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
@@ -489,11 +489,17 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-    // Il modulo non ha ancora un indirizzo di invio: per ora mostra solo una conferma.
+    // Il modulo apre il programma di posta con la richiesta già compilata.
     document.getElementById('quote-form').addEventListener('submit', function (e) {
       e.preventDefault();
+      var f = e.target;
+      var oggetto = 'Richiesta preventivo: ' + f.lavoro.value;
+      var corpo = 'Nome: ' + f.nome.value + '\nTelefono: ' + f.telefono.value +
+        '\nTipo di lavoro: ' + f.lavoro.value + '\n\n' + f.descrizione.value;
+      window.location.href = 'mailto:info@rossiedilizia.it?subject=' +
+        encodeURIComponent(oggetto) + '&body=' + encodeURIComponent(corpo);
       document.getElementById('form-note').textContent =
-        'Grazie! Il modulo non è ancora collegato: aggiungi telefono o email per ricevere le richieste.';
+        'Si è aperto il tuo programma di posta: premi Invia per mandarci la richiesta.';
     });
   </script>
 </body>
