@@ -123,13 +123,13 @@
       font-size: 15px; color: var(--on-dark-muted); max-width: none;
     }
     .hero .audience strong { color: var(--on-dark); font-weight: 700; }
-    .hero-3d { display: none; }
-    .hero.has-3d .hero-grid {
-      display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 24px; align-items: center;
+    .hero-copy { position: relative; max-width: 560px; }
+    .hero-photo {
+      position: absolute; top: 0; right: 0; bottom: 0; width: 58%;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.12) 12%, rgba(0,0,0,.45) 26%, rgba(0,0,0,.85) 40%, #000 52%);
+      mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.12) 12%, rgba(0,0,0,.45) 26%, rgba(0,0,0,.85) 40%, #000 52%);
     }
-    .hero.has-3d .hero-3d { display: block; aspect-ratio: 1 / 0.9; margin-right: -40px; }
-    .hero-3d canvas { width: 100%; height: 100%; display: block; }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 62% 40%; }
 
     /* Sections */
     section { padding: 88px 0; }
@@ -230,13 +230,18 @@
       .grid { grid-template-columns: repeat(2, 1fr); }
       .why-grid, .steps { grid-template-columns: repeat(2, 1fr); }
       .contact .wrap { grid-template-columns: 1fr; }
-      .hero.has-3d .hero-grid { grid-template-columns: 1fr; gap: 8px; }
-      .hero.has-3d .hero-3d { aspect-ratio: 4 / 3; margin: 8px -16px 0; }
+      .hero-copy { max-width: none; }
+      .hero-photo { width: 64%; opacity: .55; }
     }
     @media (max-width: 720px) {
       nav ul li:not(.cta) { display: none; }
       nav .logo img { height: 42px; }
-      .hero { padding: 64px 0 60px; }
+      .hero { padding: 0 0 60px; }
+      .hero-photo {
+        position: relative; width: auto; height: 300px; opacity: 1; margin-bottom: -40px;
+        -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+        mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+      }
       section { padding: 64px 0; }
       .grid, .why-grid, .steps { grid-template-columns: 1fr; }
       .hero .actions .btn { width: 100%; text-align: center; }
@@ -259,7 +264,11 @@
   <div class="stripes" aria-hidden="true"></div>
 
   <header class="hero" id="top">
-    <div class="wrap hero-grid">
+    <picture class="hero-photo">
+      <source type="image/webp" srcset="escavatore-800.webp 800w, escavatore.webp 1600w" sizes="(max-width: 720px) 100vw, 58vw">
+      <img src="escavatore.jpg" width="1600" height="1066" alt="Escavatore cingolato giallo al lavoro su un cumulo di terra e sassi" fetchpriority="high">
+    </picture>
+    <div class="wrap">
       <div class="hero-copy">
       <h1>Dallo scavo alla <em>posa finita</em></h1>
       <p>Realizziamo fognature, pavimentazioni esterne, demolizioni, recinzioni e movimento terra, e recuperiamo le macerie a fine lavoro. Un'unica impresa per tutto quello che si fa fuori casa.</p>
@@ -269,7 +278,6 @@
       </div>
       <p class="audience">Lavoriamo per <strong>privati, condomini, aziende ed enti pubblici</strong> a Forlì, Cesena e dintorni.</p>
       </div>
-      <div class="hero-3d" role="img" aria-label="Escavatore giallo Rossi srls al lavoro"><canvas></canvas></div>
     </div>
   </header>
 
@@ -490,7 +498,6 @@
     </div>
   </footer>
 
-  <script type="module" src="escavatore.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     // Il modulo apre il programma di posta con la richiesta già compilata.
