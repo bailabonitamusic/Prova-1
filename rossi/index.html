@@ -123,6 +123,13 @@
       font-size: 15px; color: var(--on-dark-muted); max-width: none;
     }
     .hero .audience strong { color: var(--on-dark); font-weight: 700; }
+    .hero-3d { display: none; }
+    .hero.has-3d .hero-grid {
+      display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 24px; align-items: center;
+    }
+    .hero.has-3d .hero-3d { display: block; aspect-ratio: 1 / 0.9; margin-right: -40px; }
+    .hero-3d canvas { width: 100%; height: 100%; display: block; }
 
     /* Sections */
     section { padding: 88px 0; }
@@ -223,6 +230,8 @@
       .grid { grid-template-columns: repeat(2, 1fr); }
       .why-grid, .steps { grid-template-columns: repeat(2, 1fr); }
       .contact .wrap { grid-template-columns: 1fr; }
+      .hero.has-3d .hero-grid { grid-template-columns: 1fr; gap: 8px; }
+      .hero.has-3d .hero-3d { aspect-ratio: 4 / 3; margin: 8px -16px 0; }
     }
     @media (max-width: 720px) {
       nav ul li:not(.cta) { display: none; }
@@ -250,7 +259,8 @@
   <div class="stripes" aria-hidden="true"></div>
 
   <header class="hero" id="top">
-    <div class="wrap">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
       <h1>Dallo scavo alla <em>posa finita</em></h1>
       <p>Realizziamo fognature, pavimentazioni esterne, demolizioni, recinzioni e movimento terra, e recuperiamo le macerie a fine lavoro. Un'unica impresa per tutto quello che si fa fuori casa.</p>
       <div class="actions">
@@ -258,6 +268,8 @@
         <a class="btn btn-ghost" href="#servizi">Scopri i servizi</a>
       </div>
       <p class="audience">Lavoriamo per <strong>privati, condomini, aziende ed enti pubblici</strong> a Forlì, Cesena e dintorni.</p>
+      </div>
+      <div class="hero-3d" role="img" aria-label="Escavatore giallo Rossi srls al lavoro"><canvas></canvas></div>
     </div>
   </header>
 
@@ -478,6 +490,7 @@
     </div>
   </footer>
 
+  <script type="module" src="escavatore.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     // Il modulo apre il programma di posta con la richiesta già compilata.
