@@ -53,7 +53,15 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-    a { color: inherit; }
+    a { color: inherit; text-underline-offset: .2em; text-decoration-thickness: 1.5px; }
+    ::selection { background: var(--yellow); color: #141414; }
+    :focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; border-radius: 2px; }
+    .contact :focus-visible { outline-color: #141414; }
+    input, textarea { caret-color: var(--yellow); }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
     img { max-width: 100%; display: block; }
     .wrap { max-width: 1140px; margin: 0 auto; padding: 0 16px; }
 
@@ -63,12 +71,6 @@
     }
 
     h1, h2, h3 { font-weight: 900; line-height: 1.05; letter-spacing: -0.01em; }
-    .kicker {
-      display: inline-block;
-      font-weight: 700; font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
-      color: var(--yellow-deep);
-      margin-bottom: 12px;
-    }
     .btn {
       display: inline-block;
       padding: 14px 26px;
@@ -103,14 +105,8 @@
       position: relative;
       overflow: hidden;
     }
-    .hero::after {
-      content: ""; position: absolute; right: -120px; top: -120px;
-      width: 460px; height: 460px; border-radius: 50%;
-      background: radial-gradient(circle, color-mix(in srgb, var(--yellow) 35%, transparent), transparent 70%);
-      pointer-events: none;
-    }
-    .hero .wrap { position: relative; z-index: 1; }
     .hero h1 {
+      text-wrap: balance;
       font-size: clamp(40px, 7vw, 80px);
       font-style: italic;
       text-transform: uppercase;
@@ -122,17 +118,16 @@
       font-size: 18px; color: var(--on-dark-muted);
     }
     .hero .actions { margin-top: 34px; display: flex; gap: 14px; flex-wrap: wrap; }
-    .hero .tags { margin-top: 48px; display: flex; flex-wrap: wrap; gap: 10px; list-style: none; }
-    .hero .tags li {
-      font-size: 14px; font-weight: 500;
-      padding: 6px 12px; border-radius: 999px;
-      border: 1px solid #3a3a3a; color: var(--on-dark-muted);
+    .hero .audience {
+      margin-top: 44px; padding-top: 20px; border-top: 1px solid #2e2e2e;
+      font-size: 15px; color: var(--on-dark-muted); max-width: none;
     }
+    .hero .audience strong { color: var(--on-dark); font-weight: 700; }
 
     /* Sections */
     section { padding: 88px 0; }
     .section-head { max-width: 640px; margin-bottom: 44px; }
-    .section-head h2 { font-size: clamp(30px, 4.5vw, 46px); text-transform: uppercase; font-style: italic; }
+    .section-head h2 { text-wrap: balance; font-size: clamp(30px, 4.5vw, 46px); text-transform: uppercase; font-style: italic; }
     .section-head p { margin-top: 14px; color: var(--muted); font-size: 17px; }
 
     /* Services */
@@ -145,19 +140,15 @@
       position: relative;
       transition: border-color .15s, transform .15s;
     }
-    .card::before {
-      content: ""; position: absolute; left: 0; top: 0; height: 4px; width: 56px;
-      background: var(--yellow); border-radius: 6px 0 0 0;
-    }
     .card:hover { border-color: var(--yellow); transform: translateY(-3px); }
     .card .icon {
-      width: 48px; height: 48px; border-radius: 6px;
+      flex: none; width: 44px; height: 44px; border-radius: 50%;
       background: #141414; color: var(--yellow);
       display: grid; place-items: center;
-      margin-bottom: 18px;
     }
-    .card .icon svg { width: 26px; height: 26px; }
-    .card h3 { font-size: 21px; text-transform: uppercase; margin-bottom: 10px; }
+    .card-head { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+    .card .icon svg { width: 22px; height: 22px; }
+    .card h3 { font-size: 20px; text-transform: uppercase; }
     .card p { color: var(--muted); font-size: 15.5px; }
     .card ul { margin-top: 14px; list-style: none; display: grid; gap: 6px; }
     .card li { font-size: 14.5px; padding-left: 18px; position: relative; }
@@ -169,19 +160,15 @@
     /* Why us */
     .why { background: var(--dark-2); color: var(--on-dark); }
     .why .section-head p { color: var(--on-dark-muted); }
-    .why .kicker { color: var(--yellow); }
     .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
-    .why-item .num {
-      font-size: 44px; font-weight: 900; font-style: italic; color: var(--yellow);
-      line-height: 1; margin-bottom: 12px;
-    }
+    .why-item { border-top: 3px solid var(--yellow); padding-top: 18px; }
     .why-item h3 { font-size: 18px; text-transform: uppercase; margin-bottom: 8px; }
     .why-item p { color: var(--on-dark-muted); font-size: 15px; }
 
     /* Process */
     .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: step; }
     .step {
-      padding: 26px 22px 28px;
+      padding: 26px 24px 28px 0;
       border-top: 4px solid var(--line);
       position: relative;
     }
@@ -189,7 +176,7 @@
       counter-increment: step;
       content: "0" counter(step);
       display: block; font-weight: 900; font-style: italic; font-size: 15px;
-      color: var(--yellow-deep); margin-bottom: 10px; letter-spacing: .06em;
+      color: var(--ink); margin-bottom: 10px; letter-spacing: .06em;
     }
     .step::after {
       content: ""; position: absolute; top: -4px; left: 0; width: 40%; height: 4px; background: var(--yellow);
@@ -209,7 +196,6 @@
       background: #141414; color: var(--yellow); display: grid; place-items: center;
     }
     .contact-list .ic svg { width: 20px; height: 20px; }
-    .todo { background: rgba(0,0,0,.08); padding: 1px 8px; border-radius: 3px; font-style: italic; }
 
     form {
       background: #141414; color: #f6f4ef;
@@ -224,6 +210,7 @@
       border: 1px solid #3a3a3a; border-radius: 4px; padding: 12px 14px; width: 100%;
     }
     input:focus, select:focus, textarea:focus { outline: 2px solid var(--yellow); border-color: transparent; }
+    ::placeholder { color: #8f8b82; opacity: 1; }
     textarea { min-height: 110px; resize: vertical; }
     form .btn { border: 0; cursor: pointer; width: 100%; margin-top: 4px; }
     .form-note { font-size: 13px; color: #8f8b82; }
@@ -243,6 +230,7 @@
       .hero { padding: 64px 0 60px; }
       section { padding: 64px 0; }
       .grid, .why-grid, .steps { grid-template-columns: 1fr; }
+      .hero .actions .btn { width: 100%; text-align: center; }
     }
   </style>
 </head>
@@ -263,36 +251,31 @@
 
   <header class="hero" id="top">
     <div class="wrap">
-      <span class="kicker" style="color: var(--yellow)">Rossi srls · Edilizia per esterni</span>
       <h1>Dallo scavo alla <em>posa finita</em></h1>
       <p>Realizziamo fognature, pavimentazioni esterne, demolizioni, recinzioni e movimento terra, e recuperiamo le macerie a fine lavoro. Un'unica impresa per tutto quello che si fa fuori casa.</p>
       <div class="actions">
         <a class="btn btn-primary" href="#contatti">Richiedi un sopralluogo</a>
         <a class="btn btn-ghost" href="#servizi">Scopri i servizi</a>
       </div>
-      <ul class="tags">
-        <li>Privati</li>
-        <li>Condomini</li>
-        <li>Aziende</li>
-        <li>Enti pubblici</li>
-      </ul>
+      <p class="audience">Lavoriamo per <strong>privati, condomini, aziende ed enti pubblici</strong> a Forlì, Cesena e dintorni.</p>
     </div>
   </header>
 
   <section id="servizi">
     <div class="wrap">
       <div class="section-head">
-        <span class="kicker">I nostri servizi</span>
         <h2>Tutto il lavoro all'esterno</h2>
         <p>Mezzi propri e squadra specializzata: gestiamo il cantiere dall'inizio alla fine, senza passare da un'impresa all'altra.</p>
       </div>
 
       <div class="grid">
         <article class="card">
-          <div class="icon" aria-hidden="true">
+          <div class="card-head">
+            <div class="icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h18M3 16h18"/><path d="M7 8v8M17 8v8"/><path d="M12 3v5M12 16v5"/></svg>
           </div>
-          <h3>Fognature</h3>
+            <h3>Fognature</h3>
+          </div>
           <p>Nuovi allacci e rifacimento di reti di scarico, acque bianche e nere.</p>
           <ul>
             <li>Posa di tubazioni e pozzetti</li>
@@ -302,10 +285,12 @@
         </article>
 
         <article class="card">
-          <div class="icon" aria-hidden="true">
+          <div class="card-head">
+            <div class="icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="5"/><rect x="13" y="3" width="8" height="5"/><rect x="3" y="10" width="5" height="5"/><rect x="10" y="10" width="11" height="5"/><rect x="3" y="17" width="11" height="4"/><rect x="16" y="17" width="5" height="4"/></svg>
           </div>
-          <h3>Pavimentazioni esterne</h3>
+            <h3>Pavimentazioni esterne</h3>
+          </div>
           <p>Cortili, vialetti, parcheggi e piazzali pronti per durare nel tempo.</p>
           <ul>
             <li>Autobloccanti e porfido</li>
@@ -315,10 +300,12 @@
         </article>
 
         <article class="card">
-          <div class="icon" aria-hidden="true">
+          <div class="card-head">
+            <div class="icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V10l5-3v14"/><path d="M9 21V4l6 3v14"/><path d="M15 21v-7l5 2v5"/><path d="M2 21h20"/></svg>
           </div>
-          <h3>Demolizioni</h3>
+            <h3>Demolizioni</h3>
+          </div>
           <p>Abbattimenti controllati di fabbricati, muri e pavimentazioni.</p>
           <ul>
             <li>Demolizioni totali e parziali</li>
@@ -328,10 +315,12 @@
         </article>
 
         <article class="card">
-          <div class="icon" aria-hidden="true">
+          <div class="card-head">
+            <div class="icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V6l2-2 2 2v15M10 21V6l2-2 2 2v15M16 21V6l2-2 2 2v15"/><path d="M2 10h20M2 16h20"/></svg>
           </div>
-          <h3>Recinzioni</h3>
+            <h3>Recinzioni</h3>
+          </div>
           <p>Delimitazioni per abitazioni, terreni e aree produttive.</p>
           <ul>
             <li>Muretti e fondazioni</li>
@@ -341,10 +330,12 @@
         </article>
 
         <article class="card">
-          <div class="icon" aria-hidden="true">
+          <div class="card-head">
+            <div class="icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18h12v-4H8l-2-4H2z"/><circle cx="5" cy="19" r="2"/><circle cx="11" cy="19" r="2"/><path d="M14 14l4-8 3 3-2 4"/><path d="M19 13l2 3h-4"/></svg>
           </div>
-          <h3>Movimento terra</h3>
+            <h3>Movimento terra</h3>
+          </div>
           <p>Scavi, sbancamenti e livellamenti con escavatori di varie dimensioni.</p>
           <ul>
             <li>Scavi per fondazioni</li>
@@ -354,10 +345,12 @@
         </article>
 
         <article class="card">
-          <div class="icon" aria-hidden="true">
+          <div class="card-head">
+            <div class="icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19H4.8a1.8 1.8 0 0 1-1.6-2.7L7 10"/><path d="M11 19h8.2a1.8 1.8 0 0 0 1.6-2.7L19 13"/><path d="M14 16l-3 3 3 3"/><path d="M8.3 13.4 7 10l-3.4 1.3"/><path d="m9.7 6.4 1.3-2.2a1.8 1.8 0 0 1 3 0L17.5 10"/><path d="m14.2 9.4 3.3.6.6-3.4"/></svg>
           </div>
-          <h3>Recupero macerie</h3>
+            <h3>Recupero macerie</h3>
+          </div>
           <p>Raccolta, trasporto e conferimento dei materiali di risulta.</p>
           <ul>
             <li>Carico e trasporto</li>
@@ -373,28 +366,23 @@
   <section class="why" id="perche">
     <div class="wrap">
       <div class="section-head">
-        <span class="kicker">Perché sceglierci</span>
         <h2>Un solo referente, mezzi propri</h2>
         <p>Il lavoro all'esterno ha molte fasi. Le seguiamo tutte noi, così tempi e costi restano sotto controllo.</p>
       </div>
       <div class="why-grid">
         <div class="why-item">
-          <div class="num">01</div>
           <h3>Tutto in un'impresa</h3>
           <p>Scavo, impianti, posa e smaltimento: nessun coordinamento tra ditte diverse.</p>
         </div>
         <div class="why-item">
-          <div class="num">02</div>
           <h3>Mezzi propri</h3>
           <p>Escavatori e autocarri nostri, per partire quando serve senza noleggi.</p>
         </div>
         <div class="why-item">
-          <div class="num">03</div>
           <h3>Preventivo chiaro</h3>
           <p>Sopralluogo gratuito e preventivo scritto, voce per voce.</p>
         </div>
         <div class="why-item">
-          <div class="num">04</div>
           <h3>Cantiere pulito</h3>
           <p>A fine lavori portiamo via le macerie e lasciamo l'area in ordine.</p>
         </div>
@@ -406,7 +394,6 @@
   <section id="metodo">
     <div class="wrap">
       <div class="section-head">
-        <span class="kicker">Come lavoriamo</span>
         <h2>Quattro passi, nessuna sorpresa</h2>
       </div>
       <div class="steps">
