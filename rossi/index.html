@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rossi Edilizia Esterni</title>
   <link rel="icon" href="logo.png">
-  <meta name="description" content="Rossi srls, edilizia per esterni: fognature, pavimentazioni esterne, demolizioni, recinzioni, movimento terra e recupero macerie a Forlì, Cesena e dintorni.">
+  <meta name="description" content="Rossi srls, edilizia per esterni a Forlì da 30 anni: fognature, impianti di prima pioggia, pavimentazioni, demolizioni, recinzioni, scavi e recupero macerie in tutta l'Emilia-Romagna. Preventivo gratuito.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,700;0,900;1,900&display=swap" rel="stylesheet">
@@ -164,6 +164,23 @@
       width: 8px; height: 8px; background: var(--yellow); transform: rotate(45deg);
     }
 
+    .extra { margin-top: 28px; color: var(--muted); font-size: 16px; }
+    .extra strong { color: var(--ink); }
+
+    /* About */
+    .about { background: var(--surface); border-top: 1px solid var(--line); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .about-grid .section-head { margin-bottom: 0; }
+    .about-text p { color: var(--muted); font-size: 17px; }
+    .about-text p + p { margin-top: 14px; }
+    .stats {
+      margin-top: 56px; display: grid; grid-template-columns: repeat(4, 1fr);
+      border-top: 3px solid var(--ink);
+    }
+    .stats > div { padding: 22px 20px 0 0; display: flex; flex-direction: column-reverse; gap: 4px; }
+    .stats dd { font-size: clamp(40px, 6vw, 64px); font-weight: 900; font-style: italic; line-height: 1; font-variant-numeric: tabular-nums; }
+    .stats dt { font-size: 15px; color: var(--muted); font-weight: 500; }
+
     /* Why us */
     .why { background: var(--dark-2); color: var(--on-dark); }
     .why .section-head p { color: var(--on-dark-muted); }
@@ -203,6 +220,7 @@
       background: #141414; color: var(--yellow); display: grid; place-items: center;
     }
     .contact-list .ic svg { width: 20px; height: 20px; }
+    .contact-list small { display: block; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; opacity: .7; }
 
     form {
       background: #141414; color: #f6f4ef;
@@ -220,6 +238,11 @@
     ::placeholder { color: #8f8b82; opacity: 1; }
     textarea { min-height: 110px; resize: vertical; }
     form .btn { border: 0; cursor: pointer; width: 100%; margin-top: 4px; }
+    .opt { text-transform: none; letter-spacing: 0; font-weight: 400; }
+    label.consent { display: flex; gap: 10px; align-items: flex-start; text-transform: none; letter-spacing: 0; font-weight: 400; font-size: 14px; color: #d6d2c8; }
+    label.consent input { width: 18px; height: 18px; margin-top: 2px; flex: none; accent-color: var(--yellow); }
+    label.consent a { color: var(--yellow); }
+    footer a { color: inherit; }
     .form-note { font-size: 13px; color: #8f8b82; }
 
     footer { background: #0a0a0a; color: #8f8b82; padding: 36px 0; font-size: 14px; }
@@ -230,6 +253,8 @@
       .grid { grid-template-columns: repeat(2, 1fr); }
       .why-grid, .steps { grid-template-columns: repeat(2, 1fr); }
       .contact .wrap { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 20px; }
+      .stats { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
       .hero-copy { max-width: none; }
       .hero-photo { width: 64%; opacity: .55; }
     }
@@ -255,7 +280,8 @@
       <a class="logo" href="#top" aria-label="Rossi srls, torna su"><img src="logo.png" alt="Rossi srls – Edilizia per esterni"></a>
       <ul>
         <li><a href="#servizi">Servizi</a></li>
-        <li><a href="#perche">Perché noi</a></li>
+        <li><a href="#chi-siamo">Chi siamo</a></li>
+        <li><a href="#perche">Valori</a></li>
         <li><a href="#metodo">Come lavoriamo</a></li>
         <li class="cta"><a class="btn btn-primary" href="#contatti">Preventivo gratuito</a></li>
       </ul>
@@ -271,12 +297,12 @@
     <div class="wrap">
       <div class="hero-copy">
       <h1>Dallo scavo alla <em>posa finita</em></h1>
-      <p>Realizziamo fognature, pavimentazioni esterne, demolizioni, recinzioni e movimento terra, e recuperiamo le macerie a fine lavoro. Un'unica impresa per tutto quello che si fa fuori casa.</p>
+      <p>Da 30 anni a Forlì realizziamo fognature, pavimentazioni esterne, demolizioni, recinzioni e movimento terra, e recuperiamo le macerie a fine lavoro. Un'unica impresa per tutto quello che si fa fuori casa.</p>
       <div class="actions">
         <a class="btn btn-primary" href="#contatti">Richiedi un sopralluogo</a>
         <a class="btn btn-ghost" href="#servizi">Scopri i servizi</a>
       </div>
-      <p class="audience">Lavoriamo per <strong>privati, condomini, aziende ed enti pubblici</strong> a Forlì, Cesena e dintorni.</p>
+      <p class="audience">Lavoriamo per <strong>privati, condomini, aziende ed enti pubblici</strong> a Forlì, Cesena e in tutta l'Emilia-Romagna.</p>
       </div>
     </div>
   </header>
@@ -285,7 +311,7 @@
     <div class="wrap">
       <div class="section-head">
         <h2>Tutto il lavoro all'esterno</h2>
-        <p>Mezzi propri e squadra specializzata: gestiamo il cantiere dall'inizio alla fine, senza passare da un'impresa all'altra.</p>
+        <p>Con 25 automezzi e una squadra di operai specializzati seguiamo il cantiere dall'inizio alla fine, senza passare da un'impresa all'altra.</p>
       </div>
 
       <div class="grid">
@@ -294,13 +320,14 @@
             <div class="icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h18M3 16h18"/><path d="M7 8v8M17 8v8"/><path d="M12 3v5M12 16v5"/></svg>
           </div>
-            <h3>Fognature</h3>
+            <h3>Fognature e acque</h3>
           </div>
-          <p>Nuovi allacci e rifacimento di reti di scarico, acque bianche e nere.</p>
+          <p>Impianti fognari con le tecnologie più recenti, materiali di alto livello e personale qualificato.</p>
           <ul>
-            <li>Posa di tubazioni e pozzetti</li>
-            <li>Allacci alla rete pubblica</li>
-            <li>Fosse biologiche e drenaggi</li>
+            <li>Fognature a pressione e dinamiche</li>
+            <li>Impianti di prima pioggia per riusare l'acqua piovana</li>
+            <li>Invarianza idraulica: bacini prima dell'immissione in fognatura</li>
+            <li>Impianti di depurazione</li>
           </ul>
         </article>
 
@@ -311,11 +338,12 @@
           </div>
             <h3>Pavimentazioni esterne</h3>
           </div>
-          <p>Cortili, vialetti, parcheggi e piazzali pronti per durare nel tempo.</p>
+          <p>Cortili, vialetti, parcheggi e piazzali eleganti e resistenti nel tempo.</p>
           <ul>
-            <li>Autobloccanti e porfido</li>
-            <li>Cemento e calcestruzzo stampato</li>
-            <li>Sottofondi e cordoli</li>
+            <li>Autobloccanti, pratici e combinabili</li>
+            <li>Pietra naturale</li>
+            <li>Calcestruzzo stampato: l'aspetto di pietra, mattoni o ceramica con una posa più rapida</li>
+            <li>Gettate in calcestruzzo, anche drenante</li>
           </ul>
         </article>
 
@@ -326,11 +354,11 @@
           </div>
             <h3>Demolizioni</h3>
           </div>
-          <p>Abbattimenti controllati di fabbricati, muri e pavimentazioni.</p>
+          <p>Demolizioni parziali o totali di immobili in pietra e cemento armato, nel rispetto delle norme sui rifiuti.</p>
           <ul>
-            <li>Demolizioni totali e parziali</li>
-            <li>Rimozione di solette e massetti</li>
-            <li>Cantiere messo in sicurezza</li>
+            <li>Demolizione controllata con utensili diamantati raffreddati ad acqua</li>
+            <li>Niente vibrazioni sulle armature, meno rumore e meno polveri</li>
+            <li>Materiali frantumati riutilizzati (D.lgs. 152/2006)</li>
           </ul>
         </article>
 
@@ -341,11 +369,11 @@
           </div>
             <h3>Recinzioni</h3>
           </div>
-          <p>Delimitazioni per abitazioni, terreni e aree produttive.</p>
+          <p>Recinzioni di alta qualità, realizzate e installate da noi.</p>
           <ul>
-            <li>Muretti e fondazioni</li>
-            <li>Pannelli e rete metallica</li>
-            <li>Predisposizione per cancelli</li>
+            <li>Recinzioni e cancellate</li>
+            <li>Cancelli</li>
+            <li>Complessi residenziali e sportivi, opere pubbliche</li>
           </ul>
         </article>
 
@@ -354,13 +382,12 @@
             <div class="icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18h12v-4H8l-2-4H2z"/><circle cx="5" cy="19" r="2"/><circle cx="11" cy="19" r="2"/><path d="M14 14l4-8 3 3-2 4"/><path d="M19 13l2 3h-4"/></svg>
           </div>
-            <h3>Movimento terra</h3>
+            <h3>Scavi e movimento terra</h3>
           </div>
-          <p>Scavi, sbancamenti e livellamenti con escavatori di varie dimensioni.</p>
+          <p>Un parco macchine ampio e sempre aggiornato per movimenti terra rapidi e precisi.</p>
           <ul>
-            <li>Scavi per fondazioni</li>
-            <li>Sbancamenti e riporti</li>
-            <li>Livellamento di terreni</li>
+            <li>Scavi di ogni tipo, dimensione e profondità</li>
+            <li>Trasporto del terreno in discariche autorizzate</li>
           </ul>
         </article>
 
@@ -371,14 +398,35 @@
           </div>
             <h3>Recupero macerie</h3>
           </div>
-          <p>Raccolta, trasporto e conferimento dei materiali di risulta.</p>
+          <p>Raccolta e trasporto delle macerie che arrivano dalle demolizioni.</p>
           <ul>
-            <li>Carico e trasporto</li>
+            <li>Lavorazione per ottenere materiali riutilizzabili</li>
             <li>Conferimento a impianti autorizzati</li>
-            <li>Area lasciata pulita</li>
           </ul>
         </article>
       </div>
+      <p class="extra">Eseguiamo anche <strong>carotaggi</strong> di ogni tipo e dimensione su materiali diversi e lavori di <strong>edilizia civile</strong>.</p>
+    </div>
+  </section>
+
+  <section class="about" id="chi-siamo">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="section-head">
+          <h2>L'esperienza di Gianluca Rossi, una squadra affiatata</h2>
+          <p>Concretezza, professionalità e attenzione ai dettagli sono da sempre il nostro modo di lavorare, con la soddisfazione del cliente al centro.</p>
+        </div>
+        <div class="about-text">
+          <p>Rossi Edilizia per Esterni nasce dall'esperienza del socio fondatore, Gianluca Rossi. Un ufficio tecnico interno segue le normative edilizie, sempre aggiornate, e l'ufficio amministrativo cura il rapporto con il cliente in modo puntuale e cordiale.</p>
+          <p>Il cuore dell'azienda è la squadra di operai specializzati: scelti con attenzione e con noi da molti anni. Il saper fare e la qualità del lavoro sono il nostro punto di forza.</p>
+        </div>
+      </div>
+      <dl class="stats">
+        <div><dt>Anni di esperienza</dt><dd>30</dd></div>
+        <div><dt>Progetti consegnati</dt><dd>250</dd></div>
+        <div><dt>Operai specializzati</dt><dd>10</dd></div>
+        <div><dt>Automezzi</dt><dd>25</dd></div>
+      </dl>
     </div>
   </section>
 
@@ -386,25 +434,25 @@
   <section class="why" id="perche">
     <div class="wrap">
       <div class="section-head">
-        <h2>Un solo referente, mezzi propri</h2>
-        <p>Il lavoro all'esterno ha molte fasi. Le seguiamo tutte noi, così tempi e costi restano sotto controllo.</p>
+        <h2>I nostri valori</h2>
+        <p>Quattro principi che portiamo in ogni cantiere.</p>
       </div>
       <div class="why-grid">
         <div class="why-item">
-          <h3>Tutto in un'impresa</h3>
-          <p>Scavo, impianti, posa e smaltimento: nessun coordinamento tra ditte diverse.</p>
+          <h3>Qualità</h3>
+          <p>Nella scelta dei materiali e dei macchinari. Vogliamo un lavoro di cui andare fieri nel tempo.</p>
         </div>
         <div class="why-item">
-          <h3>Mezzi propri</h3>
-          <p>Escavatori e autocarri nostri, per partire quando serve senza noleggi.</p>
+          <h3>Professionalità</h3>
+          <p>Lavoriamo solo con operai specializzati e collaboriamo con professionisti di alto livello.</p>
         </div>
         <div class="why-item">
-          <h3>Preventivo chiaro</h3>
-          <p>Sopralluogo gratuito e preventivo scritto, voce per voce.</p>
+          <h3>Precisione</h3>
+          <p>È ciò che distingue il professionista dal dilettante: rispettare i tempi di consegna curando ogni aspetto.</p>
         </div>
         <div class="why-item">
-          <h3>Cantiere pulito</h3>
-          <p>A fine lavori portiamo via le macerie e lasciamo l'area in ordine.</p>
+          <h3>Sicurezza</h3>
+          <p>Lavoriamo sempre in sicurezza, aggiornati e nel rispetto delle norme edilizie.</p>
         </div>
       </div>
     </div>
@@ -442,11 +490,15 @@
     <div class="wrap">
       <div>
         <h2>Hai un lavoro da fare?</h2>
-        <p class="lead">Raccontaci di cosa hai bisogno: ti richiamiamo per fissare un sopralluogo gratuito.</p>
+        <p class="lead">Scrivici per un primo preventivo gratuito: ti rispondiamo entro 24/48 ore.</p>
         <ul class="contact-list">
           <li>
             <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
-            <a href="tel:+3905431796138">0543 1796138</a>
+            <span><small>Ufficio</small> <a href="tel:+3905431796138">0543 1796138</a></span>
+          </li>
+          <li>
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
+            <span><small>Cellulare</small> <a href="tel:+393355640960">335 5640960</a></span>
           </li>
           <li>
             <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
@@ -454,11 +506,11 @@
           </li>
           <li>
             <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-            <a href="https://www.google.com/maps/search/?api=1&query=Via+Rio+Cozzi+2%2FL+Forl%C3%AC" target="_blank" rel="noopener">Via Rio Cozzi 2/L, Forlì (FC)</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Via+Rio+Cozzi+2%2FL+Forl%C3%AC" target="_blank" rel="noopener">Via Rio Cozzi 2/L, 47122 Forlì (FC)</a>
           </li>
           <li>
             <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg></span>
-            <span>Lavoriamo a Forlì, Cesena e dintorni</span>
+            <span>Forlì, Cesena e tutta l'Emilia-Romagna</span>
           </li>
         </ul>
       </div>
@@ -471,30 +523,36 @@
         <label>Telefono
           <input name="telefono" type="tel" required autocomplete="tel">
         </label>
+        <label><span>Email <span class="opt">(facoltativa)</span></span>
+          <input name="email" type="email" autocomplete="email">
+        </label>
         <label>Tipo di lavoro
           <select name="lavoro">
-            <option>Fognature</option>
+            <option>Fognature e acque</option>
             <option>Pavimentazione esterna</option>
             <option>Demolizione</option>
             <option>Recinzione</option>
-            <option>Movimento terra</option>
+            <option>Scavi e movimento terra</option>
             <option>Recupero macerie</option>
+            <option>Carotaggi</option>
+            <option>Edilizia civile</option>
             <option>Altro</option>
           </select>
         </label>
         <label>Descrizione
           <textarea name="descrizione" placeholder="Dove si trova il lavoro, misure indicative, tempi…"></textarea>
         </label>
+        <label class="consent"><input type="checkbox" name="privacy" required> <span>Ho letto e accetto la <a href="https://www.iubenda.com/privacy-policy/78081381" target="_blank" rel="noopener">Privacy Policy</a></span></label>
         <button class="btn btn-primary" type="submit">Invia richiesta</button>
-        <p class="form-note" id="form-note">Ti ricontattiamo entro un giorno lavorativo.</p>
+        <p class="form-note" id="form-note">Ti rispondiamo entro 24/48 ore.</p>
       </form>
     </div>
   </section>
 
   <footer>
     <div class="wrap">
-      <span><strong>Rossi srls</strong> · Edilizia per esterni · Forlì, Cesena e dintorni</span>
-      <span>© <span id="year"></span> Rossi srls · P. IVA 04731210409</span>
+      <span><strong>Rossi srls</strong> · Edilizia per esterni · Via Rio Cozzi 2/L, 47122 Forlì (FC)</span>
+      <span>© <span id="year"></span> Rossi srls · P. IVA 04731210409 · <a href="https://www.iubenda.com/privacy-policy/78081381" target="_blank" rel="noopener">Privacy Policy</a> · <a href="https://www.iubenda.com/privacy-policy/78081381/cookie-policy" target="_blank" rel="noopener">Cookie Policy</a></span>
     </div>
   </footer>
 
@@ -506,6 +564,7 @@
       var f = e.target;
       var oggetto = 'Richiesta preventivo: ' + f.lavoro.value;
       var corpo = 'Nome: ' + f.nome.value + '\nTelefono: ' + f.telefono.value +
+        (f.email.value ? '\nEmail: ' + f.email.value : '') +
         '\nTipo di lavoro: ' + f.lavoro.value + '\n\n' + f.descrizione.value;
       window.location.href = 'mailto:info@rossiedilizia.it?subject=' +
         encodeURIComponent(oggetto) + '&body=' + encodeURIComponent(corpo);
