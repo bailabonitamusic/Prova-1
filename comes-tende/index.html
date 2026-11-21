@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Comes Tende</title>
   <link rel="icon" href="logo.png">
-  <meta name="description" content="Comes Tende a Forlì: tende da sole, pergole, tende da interno e zanzariere su misura. Sopralluogo e preventivo gratuiti.">
+  <meta name="description" content="Comes Tende Srl, Forlì: tende da sole, zanzariere, tende tecniche, tapparelle, cancelletti di sicurezza, pergolati, pensiline e vetrate VEPA. Vendita, installazione e riparazioni a Forlì e comuni limitrofi.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
@@ -21,6 +21,7 @@
       --sun-soft: #fff3c4;
       --line: #f1e4c8;
       --on-red: #ffffff;
+      --photo-bg: #f6efe2;
     }
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme="light"]) {
@@ -30,9 +31,9 @@
         --muted: #c8b4a5;
         --red: #e23b2e;
         --red-dark: #ff6a5c;
-        --sun: #fde066;
         --sun-soft: #3a2d17;
         --line: #3b2c24;
+        --photo-bg: #f6efe2;
       }
     }
     :root[data-theme="dark"] {
@@ -42,13 +43,13 @@
       --muted: #c8b4a5;
       --red: #e23b2e;
       --red-dark: #ff6a5c;
-      --sun: #fde066;
       --sun-soft: #3a2d17;
       --line: #3b2c24;
+      --photo-bg: #f6efe2;
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body {
       margin: 0;
       background: var(--bg);
@@ -60,111 +61,184 @@
     h1, h2, h3 { font-family: "Montserrat", sans-serif; line-height: 1.15; margin: 0 0 .5em; }
     h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 800; }
     h3 { font-size: 1.15rem; font-weight: 600; }
-    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
-    section { padding: 80px 0; }
+    .wrap { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+    section { padding: 84px 0; }
     .eyebrow {
       display: inline-block; font-weight: 700; font-size: .8rem; letter-spacing: .12em;
       text-transform: uppercase; color: var(--red); margin-bottom: .6em;
     }
-    .lead { color: var(--muted); font-size: 1.1rem; max-width: 60ch; }
+    .lead { color: var(--muted); font-size: 1.1rem; max-width: 62ch; }
 
     /* Header */
     header {
-      position: sticky; top: 0; z-index: 10;
-      background: color-mix(in srgb, var(--bg) 90%, transparent);
+      position: sticky; top: 0; z-index: 20;
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--line);
     }
     .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 16px; }
-    .brand { display: flex; align-items: center; background: #fff; border-radius: 10px; padding: 4px 10px; }
+    .brand { display: flex; align-items: center; background: #fff; border-radius: 10px; padding: 4px 10px; flex: none; }
     .brand img { height: 44px; width: auto; }
-    .nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
-    .nav ul a { text-decoration: none; font-weight: 500; color: var(--muted); }
+    .nav ul { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; }
+    .nav ul a { text-decoration: none; font-weight: 500; color: var(--muted); font-size: .95rem; }
     .nav ul a:hover { color: var(--red); }
     .btn {
-      display: inline-block; text-decoration: none; font-weight: 700;
+      display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700;
       padding: 13px 24px; border-radius: 999px; border: 2px solid var(--red);
-      background: var(--red); color: var(--on-red); cursor: pointer; font-size: 1rem;
+      background: var(--red); color: var(--on-red); cursor: pointer; font-size: 1rem; font-family: inherit;
       transition: transform .15s, background .15s;
     }
     .btn:hover { transform: translateY(-1px); background: var(--red-dark); border-color: var(--red-dark); }
     .btn.ghost { background: transparent; color: var(--red); }
     .btn.ghost:hover { background: var(--red); color: var(--on-red); border-color: var(--red); }
-    .nav .btn { padding: 10px 18px; font-size: .9rem; }
+    .nav .btn { padding: 10px 18px; font-size: .9rem; white-space: nowrap; }
+    .btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
 
     /* Hero */
-    .hero { position: relative; overflow: hidden; padding: 96px 0 110px; }
+    .hero { position: relative; overflow: hidden; padding: 80px 0 96px; }
     .hero::before {
-      content: ""; position: absolute; right: -180px; top: -160px;
-      width: 620px; height: 620px; border-radius: 50%;
+      content: ""; position: absolute; left: -260px; bottom: -330px;
+      width: 640px; height: 640px; border-radius: 50%;
       background: repeating-conic-gradient(var(--sun) 0 6deg, transparent 6deg 18deg);
       mask: radial-gradient(circle, transparent 28%, #000 29%, #000 70%, transparent 71%);
       -webkit-mask: radial-gradient(circle, transparent 28%, #000 29%, #000 70%, transparent 71%);
-      opacity: .55;
+      opacity: .4;
     }
-    .hero::after {
-      content: ""; position: absolute; right: 30px; top: 50px;
-      width: 180px; height: 180px; border-radius: 50%; background: var(--sun); opacity: .8;
-    }
-    .hero .wrap { position: relative; z-index: 1; }
-    .hero h1 { font-size: clamp(2.3rem, 6vw, 4rem); font-weight: 800; max-width: 14ch; }
+    .hero .wrap { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+    .hero h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 800; }
     .hero h1 span { color: var(--red); }
-    .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-    .badges { display: flex; flex-wrap: wrap; gap: 10px 24px; margin-top: 40px; padding: 0; list-style: none; color: var(--muted); font-weight: 500; }
-    .badges li::before { content: "☀"; color: var(--red); margin-right: 8px; }
+    .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .badges { display: grid; gap: 8px; margin: 34px 0 0; padding: 0; list-style: none; color: var(--muted); font-weight: 500; }
+    .badges li::before { content: "☀"; color: var(--red); margin-right: 10px; }
+    .hero-photo { position: relative; margin: 0; }
+    .hero-photo::before {
+      content: ""; position: absolute; right: -40px; top: -40px; width: 160px; height: 160px;
+      border-radius: 50%; background: var(--sun);
+    }
+    .hero-photo img {
+      position: relative; width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+      border-radius: 24px; box-shadow: 0 30px 60px -30px rgba(90, 20, 0, .5);
+    }
+    .hero-photo figcaption {
+      position: absolute; left: 18px; bottom: 18px; background: var(--surface); color: var(--ink);
+      padding: 10px 16px; border-radius: 12px; font-size: .85rem; font-weight: 500;
+      box-shadow: 0 10px 24px -12px rgba(0,0,0,.35);
+    }
+    .hero-photo figcaption strong { color: var(--red); font-family: "Montserrat", sans-serif; font-size: 1.3rem; display: block; line-height: 1.1; }
 
-    /* Awning stripe divider */
+    /* Awning stripe */
     .stripe {
       height: 26px;
       background: repeating-linear-gradient(90deg, var(--red) 0 40px, var(--surface) 40px 80px);
-      mask: radial-gradient(circle at 20px 0, #000 20px, transparent 21px) 0 0/40px 26px repeat-x,
-            linear-gradient(#000, #000) 0 0/100% 6px no-repeat;
-      -webkit-mask: radial-gradient(circle at 20px 0, #000 20px, transparent 21px) 0 0/40px 26px repeat-x,
-            linear-gradient(#000, #000) 0 0/100% 6px no-repeat;
+      mask: radial-gradient(circle at 20px 0, #000 20px, transparent 21px) 0 0/40px 26px repeat-x;
+      -webkit-mask: radial-gradient(circle at 20px 0, #000 20px, transparent 21px) 0 0/40px 26px repeat-x;
     }
 
-    /* Services */
-    .services { background: var(--surface); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px; margin-top: 40px; }
+    /* Products */
+    .products { background: var(--surface); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 22px; margin-top: 40px; }
     .card {
-      background: var(--bg); border: 1px solid var(--line); border-radius: 18px; padding: 28px;
+      background: var(--bg); border: 1px solid var(--line); border-radius: 18px; overflow: hidden;
+      display: flex; flex-direction: column;
       transition: transform .2s, box-shadow .2s;
     }
     .card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px -18px rgba(120, 30, 0, .35); }
-    .icon {
-      width: 54px; height: 54px; border-radius: 14px; background: var(--sun-soft);
-      display: grid; place-items: center; margin-bottom: 18px;
-    }
-    .icon svg { width: 30px; height: 30px; stroke: var(--red); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-    .card p { color: var(--muted); margin: 0; font-size: .97rem; }
+    .card .ph { background: var(--photo-bg); height: 190px; display: grid; place-items: center; padding: 12px; }
+    .card .ph img { max-height: 166px; width: auto; border-radius: 8px; object-fit: contain; }
+    .card .body { padding: 22px 22px 24px; display: flex; flex-direction: column; flex: 1; }
+    .card p { color: var(--muted); margin: 0 0 14px; font-size: .95rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding: 0; list-style: none; }
+    .tags li { font-size: .78rem; font-weight: 500; background: var(--sun-soft); color: var(--ink); padding: 4px 10px; border-radius: 999px; }
 
-    /* Steps */
-    .steps { counter-reset: s; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; margin-top: 40px; padding: 0; list-style: none; }
-    .steps li { counter-increment: s; position: relative; padding-top: 64px; }
-    .steps li::before {
-      content: counter(s); position: absolute; top: 0; left: 0;
-      width: 48px; height: 48px; border-radius: 50%;
-      background: var(--red); color: var(--on-red);
-      display: grid; place-items: center; font: 800 1.2rem "Montserrat", sans-serif;
+    /* Service / repair */
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 40px; }
+    .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 30px; }
+    .panel h3 { display: flex; align-items: center; gap: 12px; }
+    .panel > p { color: var(--muted); margin: 0; }
+    .panel > p strong { color: var(--ink); }
+    .icon {
+      width: 48px; height: 48px; border-radius: 14px; background: var(--sun-soft); flex: none;
+      display: grid; place-items: center;
     }
-    .steps p { color: var(--muted); margin: 0; }
+    .icon svg { width: 26px; height: 26px; stroke: var(--red); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .checks { list-style: none; padding: 0; margin: 16px 0 0; }
+    .checks li { padding-left: 30px; position: relative; margin-bottom: 10px; color: var(--muted); }
+    .checks li strong { color: var(--ink); }
+    .checks li::before { content: "✓"; position: absolute; left: 0; color: var(--red); font-weight: 800; }
+    .callout {
+      margin-top: 18px; padding: 16px 18px; border-left: 4px solid var(--red);
+      background: var(--sun-soft); border-radius: 0 12px 12px 0; font-size: .95rem;
+    }
+
+    /* Eco-bonus */
+    .bonus { background: #bc0000; color: #fff; position: relative; overflow: hidden; }
+    .bonus::after {
+      content: ""; position: absolute; right: -120px; top: -120px; width: 380px; height: 380px; border-radius: 50%;
+      background: repeating-conic-gradient(rgba(253,224,102,.35) 0 6deg, transparent 6deg 18deg);
+    }
+    .bonus .wrap { position: relative; z-index: 1; display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: center; }
+    .bonus .eyebrow { color: #fde066; }
+    .bonus .lead { color: #ffe9e2; }
+    .pct { display: flex; gap: 18px; }
+    .pct div { background: #fff; color: #bc0000; border-radius: 20px; padding: 22px 26px; text-align: center; min-width: 150px; }
+    .pct strong { display: block; font: 800 3rem/1 "Montserrat", sans-serif; }
+    .pct span { font-size: .85rem; color: #6e5a4f; font-weight: 500; }
+    .bonus ul { margin: 18px 0 0; padding-left: 20px; color: #fff3ef; }
+    .bonus li { margin-bottom: 6px; }
 
     /* About */
-    .about { background: var(--sun-soft); }
-    .about .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+    .about .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; }
     .about-logo { background: #fff; border-radius: 24px; padding: 40px; box-shadow: 0 20px 40px -28px rgba(120, 30, 0, .45); }
-    .checks { list-style: none; padding: 0; margin: 24px 0 0; }
-    .checks li { padding-left: 32px; position: relative; margin-bottom: 10px; }
-    .checks li::before { content: "✓"; position: absolute; left: 0; color: var(--red); font-weight: 800; }
+    .acronym { font-family: "Montserrat", sans-serif; font-weight: 600; margin: 18px 0 0; color: var(--muted); text-align: center; font-size: .95rem; }
+    .acronym b { color: var(--red); font-weight: 800; }
+    .refs { margin-top: 26px; padding: 18px 20px; border: 1px dashed var(--muted); border-radius: 14px; }
+    .refs strong { display: block; margin-bottom: 6px; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--red); }
+    .refs p { margin: 0; color: var(--muted); }
+
+    /* Gallery */
+    .gallery-section { background: var(--surface); }
+    .gallery { columns: 3 260px; column-gap: 16px; margin-top: 40px; }
+    .gallery button {
+      display: block; width: 100%; margin: 0 0 16px; padding: 0; border: 0; background: none; cursor: zoom-in;
+      break-inside: avoid; border-radius: 14px; overflow: hidden; position: relative; text-align: left; font: inherit;
+    }
+    .gallery img { width: 100%; transition: transform .3s; }
+    .gallery button:hover img { transform: scale(1.03); }
+    .gallery span {
+      position: absolute; inset: auto 0 0 0; padding: 30px 14px 12px; color: #fff; font-size: .85rem; font-weight: 500;
+      background: linear-gradient(transparent, rgba(0,0,0,.7));
+    }
+    dialog {
+      border: 0; padding: 0; background: transparent; max-width: min(1100px, 94vw); max-height: 92vh;
+    }
+    dialog::backdrop { background: rgba(20, 8, 5, .88); }
+    dialog img { max-height: 82vh; width: auto; margin: 0 auto; border-radius: 12px; }
+    dialog p { color: #fff; text-align: center; margin: 12px 0 0; }
+    dialog .close {
+      position: fixed; top: 16px; right: 16px; width: 44px; height: 44px; border-radius: 50%;
+      border: 0; background: #fff; color: #000; font-size: 1.4rem; cursor: pointer;
+    }
+
+    /* FAQ */
+    .faq { max-width: 820px; margin-top: 36px; }
+    details { border-bottom: 1px solid var(--line); padding: 18px 0; }
+    summary { cursor: pointer; font-weight: 700; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--red); font-size: 1.4rem; line-height: 1; transition: transform .2s; }
+    details[open] summary::after { transform: rotate(45deg); }
+    details p { color: var(--muted); margin: 12px 0 0; }
 
     /* Contact */
+    .contact { background: var(--sun-soft); }
     .contact .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; }
     .info { list-style: none; padding: 0; margin: 28px 0 0; }
     .info li { display: flex; gap: 14px; margin-bottom: 18px; }
-    .info strong { display: block; font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
-    .info .icon { width: 44px; height: 44px; margin: 0; flex: none; }
+    .info strong { display: block; font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+    .info .icon { width: 44px; height: 44px; background: var(--surface); }
     .info .icon svg { width: 22px; height: 22px; }
-    form { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 32px; display: grid; gap: 16px; }
+    .map { margin-top: 10px; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); height: 230px; background: var(--surface); }
+    .map iframe { width: 100%; height: 100%; border: 0; }
+    form { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 32px; display: grid; gap: 16px; align-content: start; }
     .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     label { font-weight: 500; font-size: .9rem; display: grid; gap: 6px; }
     input, select, textarea {
@@ -172,25 +246,28 @@
       border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; width: 100%;
     }
     input:focus, select:focus, textarea:focus { outline: 2px solid var(--sun); border-color: var(--red); }
-    textarea { min-height: 120px; resize: vertical; }
+    textarea { min-height: 130px; resize: vertical; }
     .note { font-size: .85rem; color: var(--muted); margin: 0; }
 
-    footer { background: #2b0a06; color: #f5dcd2; padding: 36px 0; font-size: .9rem; }
-    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
-    footer a { color: var(--sun); }
+    footer { background: #2b0a06; color: #f5dcd2; padding: 40px 0; font-size: .88rem; }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+    footer p { margin: 0; }
+    footer a { color: #fde066; }
 
-    @media (max-width: 860px) {
+    @media (max-width: 960px) {
       .nav ul { display: none; }
-      .about .wrap, .contact .wrap { grid-template-columns: 1fr; }
-      .hero::after { width: 90px; height: 90px; right: -30px; top: -20px; }
-      .hero::before { width: 360px; height: 360px; right: -230px; top: -200px; opacity: .35; }
+      .hero .wrap, .about .wrap, .contact .wrap, .bonus .wrap, .split { grid-template-columns: 1fr; }
+      .hero-photo::before { width: 100px; height: 100px; right: -10px; top: -24px; }
     }
     @media (max-width: 520px) {
       section { padding: 60px 0; }
       .wrap { padding: 0 16px; }
       .row { grid-template-columns: 1fr; }
-      .brand img { height: 36px; }
-      form { padding: 22px; }
+      .brand img { height: 34px; }
+      .nav .btn { padding: 9px 14px; font-size: .85rem; }
+      form, .panel { padding: 22px; }
+      .pct div { min-width: 0; flex: 1; padding: 18px 12px; }
+      .pct strong { font-size: 2.4rem; }
     }
   </style>
 </head>
@@ -200,75 +277,164 @@
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="Comes Tende, torna all'inizio"><img src="logo.png" alt="Comes Tende"></a>
     <ul>
-      <li><a href="#servizi">Servizi</a></li>
-      <li><a href="#come-lavoriamo">Come lavoriamo</a></li>
+      <li><a href="#prodotti">Prodotti</a></li>
+      <li><a href="#assistenza">Assistenza</a></li>
+      <li><a href="#detrazioni">Detrazioni</a></li>
       <li><a href="#chi-siamo">Chi siamo</a></li>
+      <li><a href="#galleria">Galleria</a></li>
       <li><a href="#contatti">Contatti</a></li>
     </ul>
-    <a class="btn" href="#contatti">Preventivo gratuito</a>
+    <a class="btn" href="tel:+390543702821">
+      <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+      0543 702821
+    </a>
   </div>
 </header>
 
 <main id="top">
   <section class="hero">
     <div class="wrap">
-      <span class="eyebrow">Tende e tendaggi su misura</span>
-      <h1>Ombra, stile e comfort <span>sotto il sole</span></h1>
-      <p class="lead">Progettiamo, realizziamo e installiamo tende da sole, pergole, tende da interno e zanzariere per case, terrazzi e attività commerciali.</p>
-      <div class="actions">
-        <a class="btn" href="#contatti">Richiedi un sopralluogo</a>
-        <a class="btn ghost" href="#servizi">Scopri i servizi</a>
+      <div>
+        <span class="eyebrow">Forlì e comuni limitrofi</span>
+        <h1>Schermature solari, zanzariere e chiusure esterne <span>su misura</span></h1>
+        <p class="lead">Dal produttore al consumatore, con dedizione ed esperienza. Progettiamo, forniamo e installiamo soluzioni per il comfort e la sicurezza della casa e dei locali commerciali.</p>
+        <div class="actions">
+          <a class="btn" href="#contatti">Richiedi un preventivo</a>
+          <a class="btn ghost" href="#prodotti">Scopri i prodotti</a>
+        </div>
+        <ul class="badges">
+          <li>Sopralluogo e installazione a Forlì e dintorni</li>
+          <li>Assistenza e riparazioni, anche a domicilio</li>
+          <li>Assistenza completa per l'Eco-bonus</li>
+        </ul>
       </div>
-      <ul class="badges">
-        <li>Sopralluogo gratuito</li>
-        <li>Prodotti su misura</li>
-        <li>Installazione e assistenza</li>
-      </ul>
+      <figure class="hero-photo">
+        <img src="img/pergola_grande.jpg" alt="Pergola di grandi dimensioni con tenda frangisole richiudibile">
+        <figcaption><strong>50+ anni</strong>di esperienza a Forlì</figcaption>
+      </figure>
     </div>
   </section>
 
   <div class="stripe" aria-hidden="true"></div>
 
-  <section class="services" id="servizi">
+  <section class="products" id="prodotti">
     <div class="wrap">
-      <span class="eyebrow">Servizi</span>
-      <h2>Una soluzione per ogni spazio</h2>
-      <p class="lead">Dal balcone di casa al dehors del ristorante: ti aiutiamo a scegliere modello, tessuto e motorizzazione.</p>
+      <span class="eyebrow">Prodotti</span>
+      <h2>Tutto per ombra, comfort e sicurezza</h2>
+      <p class="lead">Un'ampia gamma per abitazioni, uffici, negozi, bar e ristoranti. Durante il sopralluogo ti aiutiamo a scegliere modello, tessuto, colore e motorizzazione.</p>
       <div class="grid">
         <article class="card">
-          <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 8h18l-2 5H5z"/><path d="M5 13v7M19 13v7"/><path d="M7 13c0 1.5 1 2.5 2.5 2.5S12 14.5 12 13c0 1.5 1 2.5 2.5 2.5S17 14.5 17 13"/></svg></div>
-          <h3>Tende da sole</h3>
-          <p>A bracci, a caduta, a cappottina e da balcone, manuali o motorizzate con sensori sole e vento.</p>
+          <div class="ph"><img src="img/tendaDETOGNI2PG.jpg" alt="Tenda da sole a bracci" loading="lazy"></div>
+          <div class="body">
+            <h3>Tende da sole</h3>
+            <p>Per balconi, terrazzi e negozi, manuali o motorizzate con sensori sole e vento. Riparazioni e cambio tessuto.</p>
+            <ul class="tags"><li>A bracci</li><li>Capottine</li><li>A caduta</li><li>Chiusure trasparenti</li><li>Capanna</li><li>Marcesa</li><li>Automatismi</li></ul>
+          </div>
         </article>
         <article class="card">
-          <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 6v14M21 6v14"/><path d="M6 6v3M10 6v3M14 6v3M18 6v3"/><path d="M2 20h20"/></svg></div>
-          <h3>Pergole e coperture</h3>
-          <p>Pergole in alluminio, bioclimatiche con lamelle orientabili e coperture per terrazzi e dehors.</p>
+          <div class="ph"><img src="img/ZANZARIERAMINISCENICA.jpg" alt="Zanzariera scenica" loading="lazy"></div>
+          <div class="body">
+            <h3>Zanzariere</h3>
+            <p>Su misura per finestre, porte-finestre e grandi aperture, anche senza guida a terra.</p>
+            <ul class="tags"><li>Scenica</li><li>Extrema</li><li>Rollout</li><li>A molla</li><li>A catena</li><li>Orizzontale</li><li>Ad anta</li><li>Scorrevole</li><li>Fissa</li></ul>
+          </div>
         </article>
         <article class="card">
-          <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 3h18"/><path d="M5 3c0 6 2 12 1 18M19 3c0 6-2 12-1 18"/><path d="M9 3c0 5 1 10 0 18M15 3c0 5-1 10 0 18"/></svg></div>
-          <h3>Tende da interno</h3>
-          <p>Tendaggi classici e moderni, tende a rullo, a pacchetto, veneziane e oscuranti per ogni ambiente.</p>
+          <div class="ph"><img src="img/tendetecniche_rullo.jpg" alt="Tenda tecnica a rullo" loading="lazy"></div>
+          <div class="body">
+            <h3>Tende tecniche</h3>
+            <p>Per gestire luce, privacy e riflessi su monitor, in casa e in ufficio. Filtranti o oscuranti.</p>
+            <ul class="tags"><li>A rullo</li><li>Veneziane</li><li>Plissettate</li><li>Bande verticali</li></ul>
+          </div>
         </article>
         <article class="card">
-          <div class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M4 9h16M4 15h16M10 3v18M16 3v18"/></svg></div>
-          <h3>Zanzariere</h3>
-          <p>Zanzariere a rullo, plissettate e a battente, su misura per finestre e porte-finestre.</p>
+          <div class="ph"><img src="img/tapparelle_pvc.jpg" alt="Tapparella avvolgibile in PVC" loading="lazy"></div>
+          <div class="body">
+            <h3>Tapparelle</h3>
+            <p>Avvolgibili in PVC, alluminio e acciaio. Installazione, riparazione e motorizzazione di tapparelle esistenti.</p>
+            <ul class="tags"><li>Microforate</li><li>Antisollevamento</li><li>PVC / Alluminio</li><li>Coibentate</li><li>Metalliche</li><li>Cassonetti esterni</li></ul>
+          </div>
+        </article>
+        <article class="card">
+          <div class="ph"><img src="img/cancelletto_flexa.jpg" alt="Cancelletto di sicurezza impacchettabile" loading="lazy"></div>
+          <div class="body">
+            <h3>Cancelletti di sicurezza</h3>
+            <p>Certificati, per porte e finestre di case e negozi. Modelli installabili anche senza opere murarie.</p>
+            <ul class="tags"><li>Flexa impacchettabili</li><li>Silver ad anta</li><li>Classici impacchettabili</li></ul>
+          </div>
+        </article>
+        <article class="card">
+          <div class="ph"><img src="img/pergolati_1.jpg" alt="Pergola con tenda" loading="lazy"></div>
+          <div class="body">
+            <h3>Pergolati e bioclimatiche</h3>
+            <p>Pergotende e pergole bioclimatiche su misura per giardini, terrazzi e spazi esterni, manuali o motorizzate.</p>
+            <ul class="tags"><li>Pergotende</li><li>Bioclimatiche</li><li>Telo teso</li><li>Telo impacchettato</li></ul>
+          </div>
+        </article>
+        <article class="card">
+          <div class="ph"><img src="img/Pensilina.jpg" alt="Pensilina per ingresso" loading="lazy"></div>
+          <div class="body">
+            <h3>Pensiline</h3>
+            <p>Curve o diritte, autoportanti in alluminio con lastre in PMMA o policarbonato, per ingressi, porte e finestre.</p>
+            <ul class="tags"><li>Curve</li><li>Diritte</li><li>Neutro / Opale / Bronzo</li></ul>
+          </div>
+        </article>
+        <article class="card">
+          <div class="ph"><img src="img/Vetrate.jpg" alt="Vetrate VEPA su terrazzo" loading="lazy"></div>
+          <div class="body">
+            <h3>Vetrate VEPA</h3>
+            <p>Vetrate scorrevoli o impacchettabili per balconi, terrazzi, verande e porticati: protezione da vento e pioggia, con la massima trasparenza.</p>
+            <ul class="tags"><li>Scorrevoli</li><li>A libro</li><li>Logge e pergole</li></ul>
+          </div>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="come-lavoriamo">
+  <section id="assistenza">
     <div class="wrap">
-      <span class="eyebrow">Come lavoriamo</span>
-      <h2>Dal sopralluogo al montaggio</h2>
-      <ol class="steps">
-        <li><h3>Sopralluogo</h3><p>Veniamo da te, prendiamo le misure e ascoltiamo le tue esigenze.</p></li>
-        <li><h3>Progetto e preventivo</h3><p>Ti proponiamo modelli, tessuti e colori con un preventivo chiaro e senza impegno.</p></li>
-        <li><h3>Installazione</h3><p>Montiamo tutto con cura, lasciando lo spazio pulito e in ordine.</p></li>
-        <li><h3>Assistenza</h3><p>Manutenzione, riparazioni e sostituzione tessuti anche dopo l'installazione.</p></li>
-      </ol>
+      <span class="eyebrow">Assistenza e riparazioni</span>
+      <h2>Ripariamo, non solo installiamo</h2>
+      <p class="lead">Servizi di ripristino a Forlì e comuni limitrofi, anche a domicilio, per tende, zanzariere e tapparelle.</p>
+      <div class="split">
+        <div class="panel">
+          <h3><span class="icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-.5-.5-2.5z"/></svg></span>Cosa facciamo</h3>
+          <ul class="checks">
+            <li><strong>Tende da sole:</strong> riparazione e cambio del telo mantenendo struttura e motorizzazione.</li>
+            <li><strong>Tapparelle:</strong> riparazioni e motorizzazione delle tapparelle esistenti.</li>
+            <li><strong>Tende tecniche:</strong> manutenzioni e cambi telo.</li>
+            <li><strong>Motorizzazioni:</strong> comandi a parete, telecomando e sensori sole, vento e pioggia.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3><span class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M4 9h16M4 15h16M10 3v18M16 3v18"/></svg></span>Zanzariera con la rete rotta?</h3>
+          <p>Cambiamo la rete alla tua zanzariera <strong>anche se non è di nostra produzione</strong>. Se è in buone condizioni conviene sostituire solo la rete.</p>
+          <div class="callout">
+            <strong>Vuoi risparmiare?</strong> Smonta la zanzariera e portala in Via dei Molini 15 a Forlì. Basta consegnare il solo cassonetto: annota la lunghezza delle guide e lasciale a casa.
+          </div>
+          <p class="note" style="margin-top:12px">Per smontarla svita prima le viti delle guide, poi quelle del cassonetto.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bonus" id="detrazioni">
+    <div class="wrap">
+      <div class="pct">
+        <div><strong>50%</strong><span>prima casa</span></div>
+        <div><strong>36%</strong><span>altri immobili</span></div>
+      </div>
+      <div>
+        <span class="eyebrow">Eco-bonus schermature solari</span>
+        <h2>Detrazione fiscale sugli acquisti 2026</h2>
+        <p class="lead">Comes Tende ti dà tutta l'assistenza necessaria per ottenere la detrazione su tende esterne, tapparelle e schermature solari.</p>
+        <ul>
+          <li>Vale per tende da sole a bracci e a rullo verticali, veneziane, tapparelle, tende per lucernari, verande e terrazzi.</li>
+          <li>Le tende devono essere fissate all'edificio, mobili, proteggere una finestra e non essere orientate a nord.</li>
+          <li>Pagamento con bonifico dedicato e dichiarazione all'ENEA entro 90 giorni dalla fine dei lavori.</li>
+          <li>Bonus sicurezza per cancelletti e tapparelle metalliche con sistemi di bloccaggio, secondo la normativa vigente.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -276,16 +442,70 @@
     <div class="wrap">
       <div>
         <span class="eyebrow">Chi siamo</span>
-        <h2>Comes Tende</h2>
-        <p class="lead">Siamo un'azienda specializzata in tende e tendaggi. Seguiamo ogni cliente di persona, dalla scelta del prodotto fino alla posa, con materiali di qualità e attenzione ai dettagli.</p>
-        <ul class="checks">
-          <li>Consulenza personalizzata</li>
-          <li>Ampia scelta di tessuti e colori</li>
-          <li>Montaggio eseguito dal nostro personale</li>
-          <li>Assistenza post-vendita</li>
-        </ul>
+        <h2>Oltre mezzo secolo di strada</h2>
+        <p class="lead">Comes Tende Srl ha sede a Forlì ed è specializzata nella fornitura e installazione di tende da sole, schermature solari, zanzariere, tapparelle e soluzioni per il comfort e la sicurezza degli ambienti.</p>
+        <p class="lead">In tutti questi anni non abbiamo mai perso di vista i nostri obiettivi: qualità dei prodotti e dei servizi, serietà verso i clienti, passione e grande versatilità. Da anni lavoriamo anche nella sicurezza domestica, con tapparelle, cancelletti e inferriate.</p>
+        <div class="refs">
+          <strong>Alcuni lavori</strong>
+          <p>Schermature frangisole per l'Università di Bologna, sede di Forlì, e per la scuola primaria De Amicis. Chiusure esterne per bar e ristoranti, tende per negozi.</p>
+        </div>
       </div>
-      <div class="about-logo"><img src="logo.png" alt="Logo Comes Tende"></div>
+      <div>
+        <div class="about-logo"><img src="logo.png" alt="Logo Comes Tende"></div>
+        <p class="acronym"><b>CO</b>mmercio di <b>M</b>ateriali <b>E</b>dili <b>S</b>peciali</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery-section" id="galleria">
+    <div class="wrap">
+      <span class="eyebrow">Galleria</span>
+      <h2>I nostri lavori</h2>
+      <div class="gallery">
+        <button type="button"><img src="img/grandizanzariere1.jpg" alt="Zanzariere motorizzate di grandi dimensioni abbinate a tende da sole a bracci estensibili" loading="lazy"><span>Zanzariere motorizzate e tende a bracci</span></button>
+        <button type="button"><img src="img/uni2.jpg" alt="Schermature esterne frangisole, Università di Bologna sede di Forlì" loading="lazy"><span>Frangisole, Università di Bologna – Forlì</span></button>
+        <button type="button"><img src="img/tende_negozio.jpg" alt="Tende esterne per negozi" loading="lazy"><span>Tende esterne per negozi</span></button>
+        <button type="button"><img src="img/chiusure_esterne_bar1.jpg" alt="Chiusure esterne per bar e ristoranti" loading="lazy"><span>Chiusure esterne per bar e ristoranti</span></button>
+        <button type="button"><img src="img/pergola_piccola.jpg" alt="Pergola con tenda frangisole richiudibile per terrazzo" loading="lazy"><span>Pergola per terrazzo</span></button>
+        <button type="button"><img src="img/frangisole_esterne.jpg" alt="Schermature esterne frangisole, scuola primaria De Amicis" loading="lazy"><span>Frangisole, scuola primaria De Amicis</span></button>
+        <button type="button"><img src="img/zanzariera_con_passaggio_per_cane.jpg" alt="Zanzariera con apertura per il passaggio di animali domestici" loading="lazy"><span>Zanzariera con passaggio per animali</span></button>
+        <button type="button"><img src="img/grandizanzariere2.jpg" alt="Zanzariere di grandi dimensioni per la protezione di spazi esterni" loading="lazy"><span>Zanzariere per grandi spazi esterni</span></button>
+        <button type="button"><img src="img/uni1.jpg" alt="Schermature esterne frangisole, Università di Bologna sede di Forlì" loading="lazy"><span>Frangisole, Università di Bologna – Forlì</span></button>
+        <button type="button"><img src="img/chiusure_esterne_bar2.jpg" alt="Chiusure esterne per bar e ristoranti" loading="lazy"><span>Chiusure esterne per locali</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <span class="eyebrow">Domande frequenti</span>
+      <h2>Prima di chiamarci</h2>
+      <div class="faq">
+        <details>
+          <summary>Serve un permesso per installare una tenda da sole?</summary>
+          <p>Nella maggior parte dei casi no: le tende rientrano di solito nell'edilizia libera. Dipende però dal regolamento comunale, dal condominio e da eventuali vincoli (centro storico, edificio vincolato). Durante il sopralluogo verifichiamo insieme la situazione.</p>
+        </details>
+        <details>
+          <summary>Meglio una tenda manuale o motorizzata?</summary>
+          <p>La versione manuale è semplice e affidabile; la motorizzazione aumenta comfort e praticità, soprattutto su tende grandi. Si possono aggiungere sensori sole e vento per proteggere la tenda.</p>
+        </details>
+        <details>
+          <summary>Posso cambiare solo il telo mantenendo la struttura?</summary>
+          <p>Sì, spesso è possibile sostituire il telo mantenendo struttura e motorizzazione. Verifichiamo lo stato dei componenti e proponiamo il tessuto più adatto.</p>
+        </details>
+        <details>
+          <summary>Si possono motorizzare tende o tapparelle già installate?</summary>
+          <p>Spesso sì. Dipende dal tipo di impianto, dagli spazi disponibili e dallo stato dei componenti. Dopo una verifica tecnica proponiamo motori e comandi a parete o con telecomando.</p>
+        </details>
+        <details>
+          <summary>Qual è la zanzariera più adatta per una porta-finestra?</summary>
+          <p>Dipende dallo spazio e da quanto spesso si passa. Sono indicate le zanzariere laterali (scenica, rollout, plissé) o quelle ad anta. Alcuni modelli non hanno guida a terra, per un passaggio più comodo.</p>
+        </details>
+        <details>
+          <summary>I cancelletti di sicurezza richiedono opere murarie?</summary>
+          <p>No, esistono modelli installabili direttamente sul vano esistente. I modelli impacchettabili si raccolgono di lato occupando poco spazio e lasciano passare luce e aria.</p>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -293,30 +513,34 @@
     <div class="wrap">
       <div>
         <span class="eyebrow">Contatti</span>
-        <h2>Richiedi un preventivo</h2>
-        <p class="lead">Scrivici o chiamaci: ti ricontattiamo per fissare un sopralluogo gratuito.</p>
-        <!-- DA COMPLETARE: sostituire i dati segnaposto con quelli reali -->
+        <h2>Vieni a trovarci o chiamaci</h2>
+        <p class="lead">Ti ricontattiamo per un sopralluogo e un preventivo a Forlì e comuni limitrofi.</p>
         <ul class="info">
           <li>
-            <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
-            <div><strong>Indirizzo</strong><a href="https://www.google.com/maps/search/?api=1&query=Via+dei+Molini+15+Forl%C3%AC" target="_blank" rel="noopener">Via dei Molini 15, Forlì (FC)</a></div>
+            <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span>
+            <div><strong>Indirizzo</strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Via+dei+Molini+15+47121+Forl%C3%AC" target="_blank" rel="noopener">Via dei Molini 15, 47121 Forlì (FC)</a></div>
           </li>
           <li>
-            <div class="icon"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></div>
-            <div><strong>Telefono</strong><a href="tel:+390543702821">0543 702821</a></div>
+            <span class="icon"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>
+            <div><strong>Telefono</strong><a href="tel:+390543702821">0543 702821</a> · <a href="tel:+393518521264">351 852 1264</a></div>
           </li>
           <li>
-            <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+            <span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
             <div><strong>Email</strong><a href="mailto:info@comestende.it">info@comestende.it</a></div>
           </li>
           <li>
-            <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-            <div><strong>Orari</strong>Lun–Ven 8:30–12:30 / 14:30–18:30<br>Sabato su appuntamento</div>
+            <span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <div><strong>Orari di apertura</strong>Lun–Ven 08:00–12:00, 14:00–18:00</div>
           </li>
         </ul>
+        <div class="map">
+          <iframe title="Mappa: Comes Tende, Via dei Molini 15, Forlì" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Via+dei+Molini+15,+47121+Forl%C3%AC&amp;output=embed"></iframe>
+        </div>
       </div>
 
       <form id="quote">
+        <h3>Richiedi un preventivo</h3>
         <div class="row">
           <label>Nome e cognome<input name="nome" required autocomplete="name"></label>
           <label>Telefono<input name="telefono" type="tel" required autocomplete="tel"></label>
@@ -326,16 +550,21 @@
           <label>Interessato a
             <select name="servizio">
               <option>Tende da sole</option>
-              <option>Pergole e coperture</option>
-              <option>Tende da interno</option>
               <option>Zanzariere</option>
-              <option>Altro</option>
+              <option>Tende tecniche</option>
+              <option>Tapparelle</option>
+              <option>Cancelletti di sicurezza</option>
+              <option>Pergolati e bioclimatiche</option>
+              <option>Pensiline</option>
+              <option>Vetrate VEPA</option>
+              <option>Assistenza / riparazione</option>
             </select>
           </label>
         </div>
+        <label>Comune<input name="comune" placeholder="Es. Forlì" autocomplete="address-level2"></label>
         <label>Messaggio<textarea name="messaggio" placeholder="Descrivi lo spazio, le misure indicative o cosa ti serve"></textarea></label>
         <button class="btn" type="submit">Invia richiesta</button>
-        <p class="note">Il pulsante apre il tuo programma di posta con la richiesta già compilata.</p>
+        <p class="note">Il pulsante apre il tuo programma di posta con la richiesta già compilata per info@comestende.it.</p>
       </form>
     </div>
   </section>
@@ -343,14 +572,33 @@
 
 <footer>
   <div class="wrap">
-    <span>© <span id="year"></span> Comes Tende · P.IVA 00000000000</span>
-    <a href="#top">Torna su ↑</a>
+    <p>© <span id="year"></span> Comes Tende s.r.l. · Via dei Molini 15, 47121 Forlì<br>
+      R.I. Forlì-Cesena n. 02322600400 · CF/P.IVA 02322600400 · Cap. Soc. int. versato 10.400 €</p>
+    <p><a href="mailto:info@comestende.it">info@comestende.it</a> · <a href="#top">Torna su ↑</a></p>
   </div>
 </footer>
 
+<dialog id="lightbox">
+  <button class="close" type="button" aria-label="Chiudi">×</button>
+  <img alt="">
+  <p></p>
+</dialog>
+
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
-  // DA COMPLETARE: indirizzo email che riceve le richieste
+
+  const box = document.getElementById('lightbox');
+  document.querySelectorAll('.gallery button').forEach((b) => {
+    b.addEventListener('click', () => {
+      const img = b.querySelector('img');
+      box.querySelector('img').src = img.src;
+      box.querySelector('img').alt = img.alt;
+      box.querySelector('p').textContent = img.alt;
+      box.showModal();
+    });
+  });
+  box.addEventListener('click', (e) => { if (e.target === box || e.target.classList.contains('close')) box.close(); });
+
   const EMAIL = 'info@comestende.it';
   document.getElementById('quote').addEventListener('submit', (e) => {
     e.preventDefault();
@@ -359,6 +607,7 @@
       'Nome: ' + f.get('nome'),
       'Telefono: ' + f.get('telefono'),
       'Email: ' + (f.get('email') || '-'),
+      'Comune: ' + (f.get('comune') || '-'),
       'Interessato a: ' + f.get('servizio'),
       '',
       f.get('messaggio') || ''
