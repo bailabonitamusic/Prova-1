@@ -188,7 +188,7 @@
 
     /* About */
     .about .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; }
-    .about-logo { background: #fff; border-radius: 24px; padding: 40px; box-shadow: 0 20px 40px -28px rgba(120, 30, 0, .45); }
+    .about-photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 24px; box-shadow: 0 20px 40px -28px rgba(120, 30, 0, .45); }
     .acronym { font-family: "Montserrat", sans-serif; font-weight: 600; margin: 18px 0 0; color: var(--muted); text-align: center; font-size: .95rem; }
     .acronym b { color: var(--red); font-weight: 800; }
     .refs { margin-top: 26px; padding: 18px 20px; border: 1px dashed var(--muted); border-radius: 14px; }
@@ -451,7 +451,7 @@
         </div>
       </div>
       <div>
-        <div class="about-logo"><img src="logo.png" alt="Logo Comes Tende"></div>
+        <img class="about-photo" src="img/tende_negozio.jpg" alt="Tende esterne per negozi realizzate da Comes Tende" loading="lazy">
         <p class="acronym"><b>CO</b>mmercio di <b>M</b>ateriali <b>E</b>dili <b>S</b>peciali</p>
       </div>
     </div>
