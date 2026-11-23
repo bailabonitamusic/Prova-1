@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Locandina Baila Bonita</title>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Inter:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #2a0a12; }
+  .poster {
+    position: relative; overflow: hidden;
+    width: 1080px; height: 1350px;
+    background:
+      radial-gradient(circle at 15% 8%, rgba(255,87,87,.55), transparent 42%),
+      radial-gradient(circle at 92% 70%, rgba(255,143,163,.45), transparent 40%),
+      radial-gradient(circle at 10% 100%, rgba(230,62,92,.5), transparent 45%),
+      linear-gradient(170deg, #4a0f1d 0%, #2a0a12 60%, #1c060c 100%);
+    color: #fff0f2; font-family: "Inter", sans-serif;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    padding: 70px 70px 60px;
+  }
+  .story { height: 1920px; padding-top: 200px; padding-bottom: 180px; }
+  /* sfondo: anelli tipo vinile + baci */
+  .rings {
+    position: absolute; width: 1500px; height: 1500px; left: 50%; top: 46%;
+    transform: translate(-50%, -50%); border-radius: 50%;
+    background: repeating-radial-gradient(circle, rgba(255,143,163,.07) 0 2px, transparent 2px 38px);
+    pointer-events: none;
+  }
+  .kiss { position: absolute; opacity: .16; width: 220px; filter: hue-rotate(0deg); }
+  .k1 { top: 40px; right: -40px; transform: rotate(18deg); }
+  .k2 { bottom: 260px; left: -60px; transform: rotate(-22deg); width: 260px; }
+  .story .k2 { bottom: 520px; }
+  .top { position: relative; font-weight: 700; letter-spacing: 9px; text-transform: uppercase; font-size: 26px; color: #ff8fa3; }
+  .top span { color: #fff0f2; }
+  .logo { position: relative; width: 900px; margin: 6px 0 0; filter: drop-shadow(0 30px 50px rgba(0,0,0,.45)); }
+  .tag { position: relative; font-family: "Shrikhand", cursive; font-size: 44px; color: #fff0f2; margin-top: -10px; text-shadow: 4px 4px 0 #e63e5c; }
+  .date {
+    position: relative; display: flex; align-items: center; gap: 34px; margin-top: 44px;
+  }
+  .date .day { font-family: "Inter"; font-weight: 900; font-size: 34px; letter-spacing: 6px; text-transform: uppercase; writing-mode: vertical-rl; transform: rotate(180deg); color: #ff8fa3; }
+  .date .num { min-width: 160px; }
+  .date .num { font-family: "Shrikhand", cursive; font-size: 210px; line-height: .9; color: #ff5757; text-shadow: 8px 8px 0 #ffe3e7; }
+  .date .month { font-weight: 900; font-size: 64px; letter-spacing: 4px; text-transform: uppercase; text-align: left; line-height: 1; }
+  .date .month small { display: block; font-size: 34px; color: #ff8fa3; letter-spacing: 3px; margin-top: 12px; font-weight: 700; }
+  .genres { position: relative; margin-top: 40px; font-weight: 700; font-size: 28px; letter-spacing: 5px; text-transform: uppercase; color: #ffe3e7; }
+  .genres i { color: #ff5757; font-style: normal; margin: 0 14px; }
+  .spacer { flex: 1; }
+  .venue {
+    position: relative; width: 100%; display: flex; align-items: center; gap: 36px;
+    background: #fff6f7; color: #2a1418; border-radius: 36px; padding: 28px 40px; text-align: left;
+    box-shadow: 0 20px 50px rgba(0,0,0,.35);
+  }
+  .vname { font-family: "Shrikhand", cursive; font-size: 104px; line-height: 1; color: #e63e5c; text-shadow: 4px 4px 0 #ffe3e7; padding: 0 10px 10px; flex: none; }
+  .venue img { height: 120px; width: auto; flex: none; }
+  .venue .sep { width: 3px; align-self: stretch; background: #fbdde2; border-radius: 3px; }
+  .venue .addr { font-size: 28px; font-weight: 700; line-height: 1.35; }
+  .venue .addr small { display: block; font-size: 23px; font-weight: 500; color: #7a5a60; margin-top: 6px; }
+  .foot { position: relative; margin-top: 30px; display: flex; justify-content: space-between; width: 100%; font-weight: 700; font-size: 26px; color: #ffe3e7; }
+  .foot b { color: #ff8fa3; }
+  .story .logo { width: 960px; margin-top: 40px; }
+  .story .date { margin-top: 80px; }
+  .story .genres { margin-top: 70px; }
+  .story .foot { flex-direction: column; gap: 14px; align-items: center; margin-top: 44px; font-size: 30px; }
+</style>
+</head>
+<body>
+<div class="poster" id="poster">
+  <div class="rings"></div>
+  <div class="top">Venerdì <span>·</span> Serata latina</div>
+  <img class="logo" src="../logo.png" alt="Baila Bonita">
+  <div class="date">
+    <div class="day">Venerdì</div>
+    <div class="num">4</div>
+    <div class="month">Dicembre<small>2026</small></div>
+  </div>
+  <div class="genres">Reggaeton<i>✦</i>Bachata<i>✦</i>Salsa<i>✦</i>Latin hits</div>
+  <div class="spacer"></div>
+  <div class="venue">
+    <div class="vname">Flora</div>
+    <div class="sep"></div>
+    <div class="addr">Piazza Saffo<br>Forlì (FC)<small>Info: Instagram @bailabonitaa</small></div>
+  </div>
+  <div class="foot"><span>Seguici su <b>@bailabonitaa</b></span><span>Musica · Allestimento · Pista</span></div>
+</div>
+<script>
+  if (location.hash === '#story') document.getElementById('poster').classList.add('story');
+</script>
+</body>
+</html>
