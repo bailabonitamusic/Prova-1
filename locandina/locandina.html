@@ -3,54 +3,117 @@
 <head>
 <meta charset="utf-8">
 <title>Locandina Baila Bonita</title>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,800;125,900&family=Shrikhand&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,800;125,900&family=Shrikhand&family=Caveat+Brush&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --coral: #ff5757; --pink: #ff8fa3; --blush: #ffe3e7; --ink: #2a1418; }
-  html, body { background: var(--blush); }
+  :root { --coral: #ff5757; --pink: #ff8fa3; --blush: #ffe3e7; --ink: #2a1418; --deep: #e63e5c; }
+  html, body { background: var(--pink); }
   .poster {
     position: relative; overflow: hidden; width: 1080px; height: 1350px;
-    background: var(--coral); color: #fff;
-    font-family: "Archivo", sans-serif; font-stretch: 125%;
-    display: flex; flex-direction: column; align-items: center;
+    background:
+      radial-gradient(circle, rgba(255,227,231,.55) 3px, transparent 3.5px) 0 0 / 34px 34px,
+      var(--pink);
+    font-family: "Archivo", sans-serif; font-stretch: 125%; color: #fff;
   }
   .story { height: 1920px; }
-  .main { flex: 1; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 50px 0; }
-  .logo { width: 900px; display: block; filter: drop-shadow(0 22px 30px rgba(120,10,30,.35)); }
-  .day { color: var(--blush); font-weight: 800; font-size: 46px; letter-spacing: 14px; margin-top: 10px; padding-left: 14px; }
-  .date { font-weight: 900; font-size: 124px; line-height: .95; letter-spacing: -3px; white-space: nowrap; text-shadow: 6px 6px 0 #c9303f; }
-  .band {
-    width: 100%; background: var(--blush); color: var(--coral);
-    display: flex; align-items: center; justify-content: space-between; gap: 40px;
-    padding: 46px 70px 54px;
-  }
-  .dj small { display: block; font-weight: 800; font-size: 30px; letter-spacing: 8px; color: var(--ink); }
-  .dj b { display: block; font-weight: 900; font-size: 74px; line-height: 1; letter-spacing: -1px; margin-top: 8px; }
-  .venue { text-align: right; }
-  .venue img { height: 120px; display: block; margin-left: auto; }
-  .venue span { display: block; font-weight: 800; font-size: 24px; letter-spacing: 3px; margin-top: 10px; color: var(--ink); white-space: nowrap; }
-  .story .main { padding-top: 140px; gap: 10px; }
-  .story .logo { width: 960px; }
-  .story .day { font-size: 54px; margin-top: 40px; }
-  .story .date { font-size: 124px; }
-  .story .band { flex-direction: column; text-align: center; gap: 44px; padding: 80px 70px 230px; }
-  .story .venue { text-align: center; }
-  .story .venue img { margin: 0 auto; height: 150px; }
-  .story .dj b { font-size: 92px; }
+  .s { position: absolute; }
+  /* sticker outline + shadow */
+  .stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(8px 12px 0 rgba(120,20,40,.22)); }
+  .card { border: 7px solid #fff; border-radius: 34px; box-shadow: 10px 14px 0 rgba(120,20,40,.22); }
+
+  .logo { width: 820px; left: 130px; top: 120px; transform: rotate(-4deg); }
+
+  .badge { width: 210px; height: 210px; border-radius: 50%; background: var(--coral); left: 40px; top: 40px; transform: rotate(-14deg);
+    display: grid; place-items: center; text-align: center; font-weight: 900; font-size: 30px; line-height: 1.05; letter-spacing: 1px; }
+  .badge::before { content: ""; position: absolute; inset: 12px; border: 3px dashed var(--blush); border-radius: 50%; }
+
+  .date { background: var(--coral); left: 90px; top: 690px; width: 900px; padding: 26px 30px 34px; text-align: center; transform: rotate(2.5deg); }
+  .date small { display: block; font-weight: 800; font-size: 40px; letter-spacing: 16px; color: var(--blush); padding-left: 16px; }
+  .date b { display: block; font-weight: 900; font-size: 102px; line-height: .95; letter-spacing: -3px; white-space: nowrap; text-shadow: 5px 5px 0 var(--deep); }
+
+  .tape { width: 170px; height: 52px; background: rgba(255,255,255,.7); box-shadow: 0 2px 4px rgba(0,0,0,.08); }
+  .t1 { left: 60px; top: 670px; transform: rotate(-30deg); }
+  .t2 { left: 880px; top: 870px; transform: rotate(-24deg); }
+
+  .dj { background: #0d0608; left: 60px; top: 990px; width: 520px; padding: 22px 30px 26px; transform: rotate(-5deg); text-align: center; }
+  .dj small { display: block; font-family: "Caveat Brush", cursive; font-stretch: 100%; font-size: 52px; color: var(--pink); line-height: 1; }
+  .dj img { height: 150px; display: block; margin: 4px auto 0; filter: drop-shadow(0 0 8px rgba(255,60,60,.9)) drop-shadow(0 0 20px rgba(255,40,40,.6)); }
+
+  .venue { background: #fff9ee; right: 50px; top: 1030px; width: 410px; padding: 22px 26px 24px; transform: rotate(5deg); text-align: center; color: var(--ink); }
+  .venue img { width: 300px; display: block; margin: 0 auto; }
+  .venue span { display: block; font-weight: 800; font-size: 21px; letter-spacing: 2px; margin-top: 10px; white-space: nowrap; }
+
+  .note { font-family: "Caveat Brush", cursive; font-stretch: 100%; font-size: 58px; color: #fff; text-shadow: 3px 3px 0 var(--deep); }
+  .n1 { right: 60px; top: 70px; transform: rotate(10deg); }
+
+  /* story layout */
+  .story .badge { left: 50px; top: 150px; }
+  .story .n1 { right: 60px; top: 190px; }
+  .story .logo { width: 900px; left: 90px; top: 340px; }
+  .story .date { top: 1010px; }
+  .story .t1 { top: 990px; }
+  .story .t2 { top: 1190px; }
+  .story .dj { top: 1360px; left: 70px; }
+  .story .venue { top: 1430px; }
 </style>
 </head>
 <body>
 <div class="poster" id="poster">
-  <div class="main">
-    <img class="logo" src="../logo.png" alt="Baila Bonita">
-    <div class="day">VENERDÌ</div>
-    <div class="date">4 DICEMBRE</div>
-  </div>
-  <div class="band">
-    <div class="dj"><small>DJ SET</small><b>RED MASTER</b></div>
-    <div class="venue"><img src="flora-logo-dark.png" alt="Flora Saffi"><span>PIAZZA SAFFI · FORLÌ</span></div>
-  </div>
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <symbol id="lips" viewBox="-6 -6 212 127">
+        <g stroke="#fff" stroke-width="10" stroke-linejoin="round">
+          <path fill="#ff5757" d="M8,56 C38,20 68,4 90,22 C95,27 105,27 110,22 C132,4 162,20 192,56 C150,50 130,58 100,60 C70,58 50,50 8,56 Z"/>
+          <path fill="#ff5757" d="M8,58 C50,64 70,68 100,68 C130,68 150,64 192,58 C166,98 132,111 100,111 C68,111 34,98 8,58 Z"/>
+        </g>
+        <path fill="#ff5757" d="M8,56 C38,20 68,4 90,22 C95,27 105,27 110,22 C132,4 162,20 192,56 C150,50 130,58 100,60 C70,58 50,50 8,56 Z"/>
+        <path fill="#ff5757" d="M8,58 C50,64 70,68 100,68 C130,68 150,64 192,58 C166,98 132,111 100,111 C68,111 34,98 8,58 Z"/>
+        <path fill="#9e1830" d="M18,57 C50,53 72,60 100,62 C128,60 150,53 182,57 C150,61 128,65 100,65 C72,65 50,61 18,57 Z"/>
+        <ellipse cx="62" cy="32" rx="14" ry="5" fill="#fff" opacity=".8" transform="rotate(-25 62 32)"/>
+        <ellipse cx="98" cy="90" rx="26" ry="6" fill="#fff" opacity=".6"/>
+      </symbol>
+      <symbol id="heart" viewBox="-8 -8 116 106">
+        <path d="M50,88 C20,66 0,48 0,26 C0,10 12,0 26,0 C37,0 45,6 50,15 C55,6 63,0 74,0 C88,0 100,10 100,26 C100,48 80,66 50,88 Z" stroke="#fff" stroke-width="10" stroke-linejoin="round" fill="currentColor"/>
+        <ellipse cx="25" cy="24" rx="9" ry="5" fill="#fff" opacity=".7" transform="rotate(-35 25 24)"/>
+      </symbol>
+      <symbol id="spark" viewBox="0 0 100 100">
+        <path d="M50,0 C54,36 64,46 100,50 C64,54 54,64 50,100 C46,64 36,54 0,50 C36,46 46,36 50,0 Z" fill="currentColor"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <div id="deco"></div>
+
+  <div class="s badge card">SERATA<br>LATINA</div>
+  <div class="s note n1">si balla!</div>
+  <img class="s logo stk" src="../logo.png" alt="Baila Bonita">
+
+  <div class="s date card"><small>VENERDÌ</small><b>4 DICEMBRE</b></div>
+  <div class="s tape t1"></div><div class="s tape t2"></div>
+
+  <div class="s dj card"><small>DJ set</small><img src="red-master.png" alt="Red Master"></div>
+  <div class="s venue card"><img src="flora-logo-dark.png" alt="Flora Saffi"><span>PIAZZA SAFFI · FORLÌ</span></div>
 </div>
-<script>if (location.hash === '#story') document.getElementById('poster').classList.add('story');</script>
+<script>
+  const story = location.hash === '#story';
+  if (story) document.getElementById('poster').classList.add('story');
+  // [type, left, top, size, rot, color]
+  const post = [
+    ['lips', 850, 575, 190, 14], ['lips', 505, 1250, 125, 8],
+    ['heart', 300, 40, 80, -12, '#ff5757'], ['heart', 950, 300, 90, 16, '#e63e5c'], ['heart', 20, 560, 100, -18, '#ffe3e7'], ['heart', 30, 1260, 70, 10, '#ffe3e7'],
+    ['spark', 900, 210, 60, 0, '#fff'], ['spark', 70, 380, 46, 0, '#ffe3e7'], ['spark', 990, 640, 40, 0, '#fff'], ['spark', 470, 960, 50, 0, '#fff'], ['spark', 1000, 1290, 44, 0, '#ffe3e7'],
+  ];
+  const st = [
+    ['lips', 820, 860, 210, 14], ['lips', 40, 1720, 180, -16], ['lips', 700, 1790, 150, 8], ['lips', 30, 860, 150, -12],
+    ['heart', 330, 170, 80, -12, '#ff5757'], ['heart', 950, 520, 90, 16, '#e63e5c'], ['heart', 40, 1240, 90, -18, '#ffe3e7'], ['heart', 520, 1740, 80, 10, '#ffe3e7'], ['heart', 960, 1300, 80, 12, '#ff5757'],
+    ['spark', 880, 120, 60, 0, '#fff'], ['spark', 80, 560, 46, 0, '#ffe3e7'], ['spark', 990, 760, 40, 0, '#fff'], ['spark', 500, 1330, 50, 0, '#fff'], ['spark', 980, 1830, 44, 0, '#ffe3e7'], ['spark', 60, 80, 40, 0, '#fff'],
+  ];
+  const deco = document.getElementById('deco');
+  for (const [t, l, tp, w, r, c] of (story ? st : post)) {
+    const vb = t === 'lips' ? '-6 -6 212 127' : t === 'heart' ? '-8 -8 116 106' : '0 0 100 100';
+    const sh = t === 'spark' ? '' : 'filter:drop-shadow(6px 8px 0 rgba(120,20,40,.2));';
+    deco.insertAdjacentHTML('beforeend', `<svg class="s" viewBox="${vb}" style="left:${l}px;top:${tp}px;width:${w}px;transform:rotate(${r}deg);color:${c||''};${sh}"><use href="#${t}"/></svg>`);
+  }
+</script>
 </body>
 </html>
