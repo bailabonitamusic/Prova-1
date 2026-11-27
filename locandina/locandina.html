@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Locandina Flora Saffi</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1122px; height: 1402px; background: #fd4899; overflow: hidden; }
+  .poster { position: relative; width: 1122px; height: 1402px; overflow: hidden; background: #fd4899; font-family: 'Montserrat', sans-serif; }
+
+  /* Artwork shifted down to free the header; top edge fades into the base pink */
+  .art {
+    position: absolute; left: 0; top: 48px; width: 1122px; height: 1402px;
+    background: url(base.png) top center / 1122px 1402px no-repeat;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 60px);
+            mask-image: linear-gradient(to bottom, transparent 0, #000 60px);
+  }
+  /* glow + vignette */
+  .glow { position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 30% at 50% 0%, rgba(255,255,255,.22), transparent 70%),
+      linear-gradient(to top, rgba(60,0,30,.85) 0%, rgba(60,0,30,.5) 12%, transparent 24%),
+      radial-gradient(ellipse at center, transparent 60%, rgba(70,0,35,.35) 100%);
+  }
+  /* paper grain */
+  .grain { position: absolute; inset: 0; opacity: .16; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- HEADER ---------- */
+  .header { position: absolute; top: 14px; left: 0; right: 0; text-align: center; }
+  .day {
+    display: inline-block; font-weight: 900; font-style: italic; font-size: 118px; line-height: .9;
+    letter-spacing: -3px; color: #fff; transform: rotate(-3deg);
+    text-shadow: 0 6px 0 #c2005f, 0 10px 0 #3a0020, 0 18px 30px rgba(60,0,30,.45);
+  }
+  .date-wrap { position: relative; display: inline-block; margin-top: 6px; transform: rotate(-3deg); }
+  .brush {
+    position: absolute; left: -40px; right: -40px; top: 10px; bottom: 0;
+    background: #120008; border-radius: 6px 40px 10px 60px / 30px 10px 40px 10px;
+    clip-path: polygon(2% 18%, 10% 4%, 40% 9%, 70% 0%, 97% 7%, 100% 30%, 96% 60%, 99% 92%, 70% 100%, 30% 94%, 5% 100%, 0 70%, 3% 45%);
+    box-shadow: 0 0 0 4px #120008;
+  }
+  .date {
+    position: relative; font-family: 'Permanent Marker', cursive; font-size: 70px; line-height: 1.1;
+    color: #ff3d9a; padding: 4px 18px 0; letter-spacing: 2px;
+    text-shadow: 0 0 18px rgba(255,61,154,.6);
+  }
+
+  /* ---------- FOOTER ---------- */
+  .footer { position: absolute; left: 0; right: 0; bottom: 26px; text-align: center; color: #fff; }
+  .djset { display:flex; justify-content:center; align-items:baseline; gap:16px; font-weight: 800; font-style: italic; font-size: 32px; letter-spacing: 3px;
+    text-shadow: 0 3px 10px rgba(40,0,20,.8); }
+  .artist1 { display:inline-block; font-family: 'Permanent Marker', cursive; font-size: 50px; line-height: 1; color: #ff3d9a;
+    transform: rotate(-3deg);
+    -webkit-text-stroke: 1.5px #fff; text-shadow: 0 3px 0 #3a0020, 0 0 14px rgba(40,0,20,.9); }
+  .artist2 { font-weight: 900; font-style: italic; font-size: 96px; line-height: .95; letter-spacing: -2px;
+    text-shadow: 0 5px 0 #c2005f, 0 9px 0 #3a0020, 0 14px 28px rgba(40,0,20,.7); }
+  .underline { width: 430px; height: 10px; margin: 6px auto 16px; border-radius: 10px;
+    background: linear-gradient(90deg, transparent, #ff3d9a 20%, #ff3d9a 80%, transparent);
+    box-shadow: 0 0 16px #ff3d9a; transform: rotate(-2deg); }
+  .time {
+    display: inline-block; padding: 8px 36px; border: 4px solid #ff8cc4; border-radius: 60px;
+    background: rgba(40,0,20,.6);
+    font-weight: 900; font-style: italic; font-size: 38px; letter-spacing: 2px;
+    box-shadow: 0 0 14px #ff3d9a, 0 0 34px rgba(255,61,154,.7), inset 0 0 14px rgba(255,61,154,.6);
+  }
+  .time small { font-size: 30px; font-weight: 800; margin: 0 6px; opacity: .9; }
+  .place { margin-top: 12px; font-weight: 800; font-size: 34px; display: flex; align-items: center; justify-content: center; gap: 12px;
+    text-shadow: 0 3px 10px rgba(40,0,20,.9); }
+  .place svg { width: 28px; height: 38px; filter: drop-shadow(0 0 8px rgba(255,61,154,.8)); }
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="art"></div>
+  <div class="glow"></div>
+  <div class="grain"></div>
+
+  <div class="header">
+    <div class="day">VENERDÌ</div><br>
+    <div class="date-wrap"><div class="brush"></div><div class="date">4 DICEMBRE</div></div>
+  </div>
+
+  <div class="footer">
+    <div class="djset"><span>DJ SET:</span><span class="artist1">BAILA BONITA</span></div>
+    <div class="artist2">RED MASTER</div>
+    <div class="underline"></div>
+    <div class="time"><small>DALLE</small> 21:00 <small>ALLE</small> 00:00</div>
+    <div class="place">
+      <svg viewBox="0 0 24 32"><path fill="#ff3d9a" d="M12 0C5.4 0 0 5.3 0 11.9 0 20.8 12 32 12 32s12-11.2 12-20.1C24 5.3 18.6 0 12 0zm0 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/></svg>
+      Piazza Saffi, Forlì
+    </div>
+  </div>
+</div>
+</body>
+</html>
