@@ -36,16 +36,16 @@ ff = subprocess.Popen([
     "-c:a", "copy", "-shortest", "-movflags", "+faststart", OUT,
 ], stdin=subprocess.PIPE)
 
-XF = 0.0  # giunzione del giro: taglio netto sul battito
+# avanti e indietro (ping-pong): nessun taglio, il movimento resta continuo.
+# Le inversioni cadono sul battito 8 e 16, come un normale cambio di direzione dei fianchi.
 for i in range(int(DUR * FPS_OUT)):
     t = i / FPS_OUT
-    tau = t % LOOP
+    tau = t % (2 * LOOP)
+    if tau > LOOP:
+        tau = 2 * LOOP - tau
     src_t = np.interp(tau, dst_pts, src_pts)
     fi = min(int(round(src_t * sfps)), len(frames) - 1)
     out = frames[fi].astype(np.float32)
-    if XF > 0 and t > LOOP / 2 and tau > LOOP - XF:  # verso la fine del giro sfuma nel primo fotogramma
-        a = (tau - (LOOP - XF)) / XF
-        out = out * (1 - a) + frames[int(round(src_pts[0] * sfps))].astype(np.float32) * a
     ff.stdin.write(out.astype(np.uint8).tobytes())
 ff.stdin.close()
 ff.wait()
